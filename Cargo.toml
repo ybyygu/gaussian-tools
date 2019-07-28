@@ -1,0 +1,16 @@
+# cargo
+
+# [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*cargo][cargo:1]]
+[package]
+name = "xo-tools"
+version = "0.0.1"
+edition = "2018"
+authors = ["Wenping Guo <ybyygu@gmail.com>"]
+
+[dependencies]
+regex = "1"
+structopt = "0.2"
+quicli = "0.4"
+
+[dev-dependencies]
+# cargo:1 ends here
