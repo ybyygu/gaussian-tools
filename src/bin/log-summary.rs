@@ -3,9 +3,7 @@
 // [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*imports][imports:1]]
 use std::io::BufRead;
 
-use quicli::prelude::*;
-
-type Result<T> = ::std::result::Result<T, Error>;
+use xo_tools::*;
 // imports:1 ends here
 
 // core
@@ -158,10 +156,10 @@ fn main() -> CliResult {
     args.verbosity.setup_env_logger(&env!("CARGO_PKG_NAME"))?;
 
     // setup a pager like `less` cmd
-    pager::Pager::with_pager("less -r").setup();
-    let f = std::fs::File::open(&args.log_file)?;
-    let f = std::io::BufReader::new(f);
-    let _ = summarize_gauss_log(f)?;
+    pager::Pager::with_pager("less").setup();
+
+    let reader = file_reader(args.log_file)?;
+    let _ = summarize_gauss_log(reader)?;
 
     Ok(())
 }
