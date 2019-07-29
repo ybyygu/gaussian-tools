@@ -138,7 +138,7 @@ use std::path::PathBuf;
 
 use structopt::*;
 
-/// Update Gaussian input file from geometry optimization log file.
+/// Print important lines found in a Gaussian output file.
 #[derive(Debug, StructOpt)]
 struct Cli {
     #[structopt(flatten)]
