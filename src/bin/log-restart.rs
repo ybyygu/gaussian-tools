@@ -1,7 +1,6 @@
 // imports
 
 // [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*imports][imports:1]]
-use std::io::BufRead;
 use std::path::Path;
 
 use xo_tools::*;
@@ -111,6 +110,11 @@ fn test_parse_log() -> Result<()> {
 
 // [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*update][update:1]]
 /// Update input with new coordinates
+///
+/// # Parameters
+/// * coords: xyz coordinates from Gaussian log file.
+/// * path: path to Gaussian input file, *.com, *.gjf
+///
 fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Result<String> {
     let pat = r"\s+[-0-9]+\.[0-9]+\s+[-0-9]+\.[0-9]+\s+[-0-9]+\.[0-9]+";
     let re = regex::Regex::new(pat).unwrap();
@@ -118,6 +122,7 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
     let mut lines = vec![];
     let mut coords_iter = coords.iter();
     let reader = file_reader(path)?;
+    let mut ireplaced = 0;
     for line in reader.lines() {
         let line = line?;
         let line = if let Some(m) = re.find(&line) {
@@ -126,9 +131,10 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
             let xyz_old = &line[s..e];
             if let Some([x, y, z]) = coords_iter.next() {
                 let xyz_new = format!("{:20.8}{:20.8}{:20.8}", x, y, z);
+                ireplaced += 1;
                 line.replace(xyz_old, &xyz_new)
             } else {
-                panic!("coords is inconsistent with input");
+                panic!("output coords is inconsistent with input structure.");
             }
         } else {
             line
@@ -136,6 +142,8 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
 
         lines.push(line);
     }
+    assert_eq!(ireplaced, coords.len(), "Incorrect number of coordinates!");
+
     // append final blank line to avoid the bug in Gaussian.
     lines.push("".into());
 

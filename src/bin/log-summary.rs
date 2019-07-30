@@ -1,8 +1,6 @@
 // imports
 
 // [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*imports][imports:1]]
-use std::io::BufRead;
-
 use xo_tools::*;
 // imports:1 ends here
 
