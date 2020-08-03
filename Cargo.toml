@@ -1,15 +1,15 @@
 # [[file:xo-tools.note::*cargo][cargo:1]]
 [package]
 name = "xo-tools"
-version = "0.0.3"
+version = "0.0.4"
 edition = "2018"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
 [dependencies]
 pager = "0.15"
 regex = "1"
-structopt = "0.2"
-quicli = "0.4"
+structopt = "0.3"
+gut = { version = "0.1", package = "gchemol-gut" }
 
 [dev-dependencies]
 # cargo:1 ends here

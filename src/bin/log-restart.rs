@@ -1,14 +1,10 @@
-// imports
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*imports][imports:1]]
+// [[file:../../xo-tools.note::*imports][imports:1]]
 use std::path::Path;
 
 use xo_tools::*;
 // imports:1 ends here
 
-// log
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*log][log:1]]
+// [[file:../../xo-tools.note::*log][log:1]]
 /// Parse xyz coordinates from gaussian log file.
 fn parse_gaussian_log_file<P: AsRef<Path>>(path: P) -> Result<Vec<[f64; 3]>> {
     let reader = file_reader(&path)?;
@@ -106,9 +102,7 @@ fn test_parse_log() -> Result<()> {
 }
 // log:1 ends here
 
-// update
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*update][update:1]]
+// [[file:../../xo-tools.note::*update][update:1]]
 /// Update input with new coordinates
 ///
 /// # Parameters
@@ -151,12 +145,11 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
 }
 // update:1 ends here
 
-// main
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*main][main:1]]
+// [[file:../../xo-tools.note::*main][main:1]]
 use std::path::PathBuf;
 
-use quicli::prelude::*;
+use gut::prelude::*;
+use gut::cli::*;
 use structopt::*;
 
 /// Update Gaussian input file from multi-step optimization job.
@@ -177,7 +170,7 @@ struct Cli {
 
 fn main() -> CliResult {
     let args = Cli::from_args();
-    args.verbosity.setup_env_logger("log-restart")?;
+    args.verbosity.setup_logger();
 
     let ofile = &args.out_file;
     info!("Log file: {}", ofile.display());

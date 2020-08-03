@@ -127,6 +127,7 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
 // [[file:../../xo-tools.note::*main][main:1]]
 use std::path::PathBuf;
 
+use gut::cli::*;
 use structopt::*;
 
 /// Print important lines found in a Gaussian output file.
@@ -146,7 +147,7 @@ struct Cli {
 
 fn main() -> CliResult {
     let args = Cli::from_args();
-    args.verbosity.setup_env_logger(&env!("CARGO_PKG_NAME"))?;
+    args.verbosity.setup_logger();
 
     // setup a pager like `less` cmd
     pager::Pager::with_pager("less").setup();
