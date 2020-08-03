@@ -1,12 +1,8 @@
-// imports
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*imports][imports:1]]
+// [[file:../../xo-tools.note::*imports][imports:1]]
 use xo_tools::*;
 // imports:1 ends here
 
-// core
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*core][core:1]]
+// [[file:../../xo-tools.note::*core][core:1]]
 macro_rules! banner {
     () => {
         println!(" {:-^72}", "");
@@ -55,9 +51,10 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
         } else if line.contains("Number of steps in this run=") {
             println!("{}", line);
         // # print SCF information and the next two lines
-        } else if line.contains("SCF Done") {
+        } else if line.starts_with(" SCF Done: ") {
+            println!("{}", line);
             print_next_line!(lines);
-            print_next_line!(lines);
+            // print_next_line!(lines);
             banner!();
         } else if line.contains("Step number") {
             println!("{}", line);
@@ -127,9 +124,7 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
 }
 // core:1 ends here
 
-// main
-
-// [[file:~/Workspace/Programming/xo-tools.rs/xo-tools.note::*main][main:1]]
+// [[file:../../xo-tools.note::*main][main:1]]
 use std::path::PathBuf;
 
 use structopt::*;
