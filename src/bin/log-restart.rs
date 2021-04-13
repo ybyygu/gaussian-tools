@@ -148,8 +148,8 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
 // [[file:../../xo-tools.note::*main][main:1]]
 use std::path::PathBuf;
 
-use gut::prelude::*;
 use gut::cli::*;
+use gut::prelude::*;
 use structopt::*;
 
 /// Update Gaussian input file from multi-step optimization job.
@@ -162,20 +162,24 @@ struct Cli {
     #[structopt(parse(from_os_str), short = "-t")]
     inp_file: Option<PathBuf>,
 
+    /// The path to save Gaussian input file for restaring.
+    #[structopt(parse(from_os_str), short = "-o")]
+    out_file: Option<PathBuf>,
+
     /// The Gaussian log file containing multiple geometries, such as a geometry
     /// optimization job.
     #[structopt(parse(from_os_str))]
-    out_file: PathBuf,
+    log_file: PathBuf,
 }
 
 fn main() -> CliResult {
     let args = Cli::from_args();
     args.verbosity.setup_logger();
 
-    let ofile = &args.out_file;
+    let ofile = &args.log_file;
     info!("Log file: {}", ofile.display());
 
-    let guessed = args.out_file.with_extension("gjf");
+    let guessed = args.log_file.with_extension("gjf");
     let ifile = args.inp_file.unwrap_or_else(|| guessed);
     info!("Input file: {}", ifile.display());
 
@@ -184,10 +188,13 @@ fn main() -> CliResult {
 
     let txt = update_with_coordinates(&ifile, &coords)?;
 
-    // setup a pager like `less` cmd
-    pager::Pager::with_pager("less").setup();
-
-    print!("{}", txt);
+    if let Some(ofile) = args.out_file {
+        gut::fs::write_to_file(ofile, &txt)?;
+    } else {
+        // setup a pager like `less` cmd
+        pager::Pager::with_pager("less").setup();
+        print!("{}", txt);
+    }
 
     Ok(())
 }
