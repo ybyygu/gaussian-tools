@@ -1,4 +1,3 @@
-# [[file:xo-tools.note::*cargo][cargo:1]]
 [package]
 name = "gaussian-tools"
 version = "0.0.5"
@@ -10,6 +9,7 @@ pager = "0.16"
 regex = "1"
 structopt = "0.3"
 gut = { version = "0.1", package = "gchemol-gut" }
+duct = "0.13.5"
+tempfile = "3.2.0"
 
 [dev-dependencies]
-# cargo:1 ends here
