@@ -1,12 +1,12 @@
 # [[file:xo-tools.note::*cargo][cargo:1]]
 [package]
-name = "xo-tools"
+name = "gaussian-tools"
 version = "0.0.5"
 edition = "2018"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
 [dependencies]
-pager = "0.15"
+pager = "0.16"
 regex = "1"
 structopt = "0.3"
 gut = { version = "0.1", package = "gchemol-gut" }

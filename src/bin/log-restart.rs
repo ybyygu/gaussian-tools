@@ -1,7 +1,7 @@
 // [[file:../../xo-tools.note::*imports][imports:1]]
 use std::path::Path;
 
-use xo_tools::*;
+use gaussian_tools::*;
 // imports:1 ends here
 
 // [[file:../../xo-tools.note::*log][log:1]]
