@@ -13,3 +13,7 @@ duct = "0.13.5"
 tempfile = "3.2.0"
 
 [dev-dependencies]
+
+
+# [patch.crates-io]
+# gchemol-gut = {path = "/home/ybyygu/Workspace/Programming/gchemol-rs/gut" }
