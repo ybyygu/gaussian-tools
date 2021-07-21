@@ -1,6 +1,6 @@
 [package]
 name = "gaussian-tools"
-version = "0.0.5"
+version = "0.0.6"
 edition = "2018"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
@@ -8,12 +8,13 @@ authors = ["Wenping Guo <ybyygu@gmail.com>"]
 pager = "0.16"
 regex = "1"
 structopt = "0.3"
-gut = { version = "0.1", package = "gchemol-gut" }
+gut = { version = "0.1.5", package = "gchemol-gut" }
 duct = "0.13.5"
 tempfile = "3.2.0"
 
 [dev-dependencies]
 
 
-# [patch.crates-io]
-# gchemol-gut = {path = "/home/ybyygu/Workspace/Programming/gchemol-rs/gut" }
+[patch.crates-io]
+gchemol-gut = {path = "/home/ybyygu/Workspace/Programming/gchemol-rs/gut" }
+

@@ -28,57 +28,57 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
     while let Some(line) = lines.next() {
         let line = line?;
         if line.contains("Revision") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.starts_with(" Stoichiometry") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.starts_with(" Standard basis:") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.starts_with(" General basis") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.starts_with(" Framework group") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.starts_with(" Deg. of freedom") {
-            println!("{}", line);
+            info!("{}", line);
             banner!();
         } else if line.contains("Standard basis") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.contains("basis functions") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.contains("(Enter ") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.contains("Leave Link ") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.contains("Number of steps in this run=") {
-            println!("{}", line);
+            info!("{}", line);
         // # print SCF information and the next two lines
         } else if line.starts_with(" SCF Done: ") {
-            println!("{}", line);
+            warn!("{}", line);
             print_next_line!(lines);
             // print_next_line!(lines);
             banner!();
         } else if line.contains("Step number") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("exceeded") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("energy=") {
-            println!("{}", line);
+            debug!("{}", line);
         } else if line.contains("Counterpoise:") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.starts_with(" Energy=") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.starts_with(" Cycle ") {
-            println!("{}", line);
+            trace!("{}", line);
         } else if line.starts_with(" E=") {
-            println!("{}", line);
+            trace!("{}", line);
         } else if line.contains("ONIOM: generating point") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("ONIOM: extrapolated energy") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("ONIOM: Dipole moment") {
-            println!("{}", line);
+            info!("{}", line);
             print_next_line!(lines);
         } else if line.contains("Eigenvalues ---") {
-            println!("{}", line);
+            info!("{}", line);
             // skip other Eigenvalues lines
             while let Some(line) = lines.next() {
                 let line = line?;
@@ -90,33 +90,33 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
         // # print converged information
         else if line.contains("Converged?") {
             banner!();
-            println!("{}", line);
+            info!("{}", line);
             for _ in 0..7 {
                 print_next_line!(lines);
             }
             banner!();
         } else if line.contains("WARNING") {
-            println!("{}", line);
+            warn!("{}", line);
         } else if line.contains("Warning") {
-            println!("{}", line);
+            warn!("{}", line);
         } else if line.contains("Frequencies --") {
             if first_time {
-                println!("{}", line);
+                info!("{}", line);
             }
             first_time = false;
         } else if line.contains("Zero-point correction=") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("Thermal correction to") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("Sum of electronic and") {
-            println!("{}", line);
+            info!("{}", line);
             if line.contains("thermal Free Energies") {
                 banner!();
             }
         } else if line.contains("termination") {
-            println!("{}", line);
+            info!("{}", line);
         } else if line.contains("Job cpu time:") {
-            println!("{}", line);
+            info!("{}", line);
         }
     }
 
@@ -147,7 +147,7 @@ struct Cli {
 
 fn main() -> CliResult {
     let args = Cli::from_args();
-    args.verbosity.setup_logger();
+    args.verbosity.setup_plain_logger();
 
     // setup a pager like `less` cmd
     pager::Pager::with_pager("less").setup();
