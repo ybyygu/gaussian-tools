@@ -50,6 +50,8 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
             debug!("{}", line);
         } else if line.contains("Number of steps in this run=") {
             info!("{}", line);
+        } else if line.contains("Convergence criterion not met") {
+            warn!("{}", line);
         // # print SCF information and the next two lines
         } else if line.starts_with(" SCF Done: ") {
             warn!("{}", line);
