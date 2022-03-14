@@ -1,20 +1,20 @@
+# [[file:xo-tools.note::53f67ee8][53f67ee8]]
 [package]
 name = "gaussian-tools"
-version = "0.0.6"
-edition = "2018"
+version = "0.0.7"
+edition = "2021"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
 [dependencies]
 pager = "0.16"
 regex = "1"
-structopt = "0.3"
-gut = { version = "0.1.5", package = "gchemol-gut" }
+gut = { version = "0.2", package = "gchemol-gut" }
 duct = "0.13.5"
 tempfile = "3.2.0"
+clap = {version="3", features = ["derive"]}
 
 [dev-dependencies]
 
-
 [patch.crates-io]
 gchemol-gut = {path = "/home/ybyygu/Workspace/Programming/gchemol-rs/gut" }
-
+# 53f67ee8 ends here
