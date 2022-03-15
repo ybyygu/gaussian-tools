@@ -4,9 +4,10 @@
 use super::*;
 // 0c085add ends here
 
-// [[file:../xo-tools.note::*mods][mods:1]]
+// [[file:../xo-tools.note::101dbb9a][101dbb9a]]
 mod gau;
-// mods:1 ends here
+mod gjf;
+// 101dbb9a ends here
 
 // [[file:../xo-tools.note::8e5ac845][8e5ac845]]
 const N: usize = 7;
