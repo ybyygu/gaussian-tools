@@ -1,0 +1,49 @@
+=>----------------------------------------------------------------------------==
+  #Program :  xDH4Gau
+  #Authors :  Igor Ying Zhang, Xin Xu
+  #Version :  1.0(20210516)
+  #Purpose :  1) Perform XYG3-type doubly hybrid (xDH) calculations using the
+                 Gaussian package (available for Gaussian 03, 09, and 16).
+              2) Share the same input/output format of the Gaussian package
+  #Refs :     If you publish the xDH results using the xDH script, please make
+              sure to cite the references properly
+              1) For the original XYG3 method, please cite:
+                 Zhang, Y.; Xu, X.; Goddard, W. A. Doubly Hybrid Density
+                 Functional for Accurate Descriptions of Nonbond Interactions,
+                 Thermochemistry, and Thermochemical Kinetics.
+                 Proc. Natl. Acad. Sci. USA 2009, 106 (13), 4963-4968.
+              2) For the lower-scaling XYGJ-OS method, please cite:
+                 Zhang, I. Y.; Xu, X.; Jung, Y.; Goddard, W. A. A Fast Doubly
+                 Hybrid Density Functional Method Close to Chemical Accuracy
+                 Using a Local Opposite Spin Ansatz.
+                 Proc. Natl. Acad. Sci. USA 2011, 108 (50), 19896-19900.
+              3) For the family of xDH@B3LYP methods, please cite:
+                 Zhang, I. Y.; Xu, X. Exploring the Limits of the XYG3-Type
+                 Doubly Hybrid Approximations for the Main-Group Chemistry:
+                 The XDH@B3LYP Model.
+                 J. Phys. Chem. Lett. 2021, 12, 2638-2644.
+==----------------------------------------------------------------------------==
+  Start the job of "o2.gjf" using the Gaussian 09 package
+==----------------------------------------------------------------------------==
+=>Open Gau-Input file "o2.gjf" for GauIO class
+=>Loading Cartesian coordinates
+=>In job=o2
+  O                 -3.33902648   -1.01195558    0.00000000
+  O                 -4.50062648   -1.01195558    0.00000000
+=>"XYG3" is choosen for the question
+=>Solvation energy is considered by scrf(pcm,solvent=water)
+==----------------------------------------------------------------------------==
+  E(B3LYP)    =    -150.36756788 A.U.    E(XYG3)     =    -150.25844295 A.U.
+==----------------------------------------------------------------------------==
+=>XYG3 belongs to the family of xDH@B3LYP
+=>E(XYGJ-OS)  =    -149.96275308 A.U.
+=>E(revXYG3)  =    -150.25238782 A.U.
+=>E(XYG5)     =    -150.05851758 A.U.
+=>E(XYG6)     =    -150.00590782 A.U.
+=>E(XYG7)     =    -149.53977018 A.U.
+=>Job Type :: Single-Point Calculation
+================================================================================
+**                                                                            **
+** THE JOB OF "o2" IS DONE                                                    **
+**                                                                            **
+================================================================================

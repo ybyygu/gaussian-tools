@@ -7,7 +7,7 @@ authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
 [dependencies]
 pager = "0.16"
-regex = "1"
+regex = { version = "1" }
 gut = { version = "0.2", package = "gchemol-gut" }
 duct = "0.13.5"
 tempfile = "3.2.0"

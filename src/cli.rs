@@ -9,4 +9,5 @@ pub mod cubegen;
 pub mod log;
 pub mod restart;
 pub mod run;
+pub mod xdh;
 // 7418a8f2 ends here

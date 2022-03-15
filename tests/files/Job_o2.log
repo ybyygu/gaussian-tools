@@ -1,0 +1,960 @@
+ Entering Gaussian System, Link 0=/share/apps/gaussian/G09D01/g09/g09
+ Input=/home/ybyygu/.script886090/Job_o2.com
+ Output=/home/ybyygu/.script886090/Job_o2.log
+ Initial command:
+ /share/apps/gaussian/G09D01/g09/l1.exe "/scratch/scr/ybyygu/Gau-886115.inp" -scrdir="/scratch/scr/ybyygu/"
+ Entering Link 1 = /share/apps/gaussian/G09D01/g09/l1.exe PID=    886116.
+  
+ Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2013,
+            Gaussian, Inc.  All Rights Reserved.
+  
+ This is part of the Gaussian(R) 09 program.  It is based on
+ the Gaussian(R) 03 system (copyright 2003, Gaussian, Inc.),
+ the Gaussian(R) 98 system (copyright 1998, Gaussian, Inc.),
+ the Gaussian(R) 94 system (copyright 1995, Gaussian, Inc.),
+ the Gaussian 92(TM) system (copyright 1992, Gaussian, Inc.),
+ the Gaussian 90(TM) system (copyright 1990, Gaussian, Inc.),
+ the Gaussian 88(TM) system (copyright 1988, Gaussian, Inc.),
+ the Gaussian 86(TM) system (copyright 1986, Carnegie Mellon
+ University), and the Gaussian 82(TM) system (copyright 1983,
+ Carnegie Mellon University). Gaussian is a federally registered
+ trademark of Gaussian, Inc.
+  
+ This software contains proprietary and confidential information,
+ including trade secrets, belonging to Gaussian, Inc.
+  
+ This software is provided under written license and may be
+ used, copied, transmitted, or stored only in accord with that
+ written license.
+  
+ The following legend is applicable only to US Government
+ contracts under FAR:
+  
+                    RESTRICTED RIGHTS LEGEND
+  
+ Use, reproduction and disclosure by the US Government is
+ subject to restrictions as set forth in subparagraphs (a)
+ and (c) of the Commercial Computer Software - Restricted
+ Rights clause in FAR 52.227-19.
+  
+ Gaussian, Inc.
+ 340 Quinnipiac St., Bldg. 40, Wallingford CT 06492
+  
+  
+ ---------------------------------------------------------------
+ Warning -- This program may not be used in any manner that
+ competes with the business of Gaussian, Inc. or will provide
+ assistance to any competitor of Gaussian, Inc.  The licensee
+ of this program is prohibited from giving any competitor of
+ Gaussian, Inc. access to this program.  By using this program,
+ the user acknowledges that Gaussian, Inc. is engaged in the
+ business of creating and licensing software in the field of
+ computational chemistry and represents and warrants to the
+ licensee that it is not a competitor of Gaussian, Inc. and that
+ it will not use this program in any manner prohibited above.
+ ---------------------------------------------------------------
+  
+
+ Cite this work as:
+ Gaussian 09, Revision D.01,
+ M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, 
+ M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, B. Mennucci, 
+ G. A. Petersson, H. Nakatsuji, M. Caricato, X. Li, H. P. Hratchian, 
+ A. F. Izmaylov, J. Bloino, G. Zheng, J. L. Sonnenberg, M. Hada, 
+ M. Ehara, K. Toyota, R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, 
+ Y. Honda, O. Kitao, H. Nakai, T. Vreven, J. A. Montgomery, Jr., 
+ J. E. Peralta, F. Ogliaro, M. Bearpark, J. J. Heyd, E. Brothers, 
+ K. N. Kudin, V. N. Staroverov, T. Keith, R. Kobayashi, J. Normand, 
+ K. Raghavachari, A. Rendell, J. C. Burant, S. S. Iyengar, J. Tomasi, 
+ M. Cossi, N. Rega, J. M. Millam, M. Klene, J. E. Knox, J. B. Cross, 
+ V. Bakken, C. Adamo, J. Jaramillo, R. Gomperts, R. E. Stratmann, 
+ O. Yazyev, A. J. Austin, R. Cammi, C. Pomelli, J. W. Ochterski, 
+ R. L. Martin, K. Morokuma, V. G. Zakrzewski, G. A. Voth, 
+ P. Salvador, J. J. Dannenberg, S. Dapprich, A. D. Daniels, 
+ O. Farkas, J. B. Foresman, J. V. Ortiz, J. Cioslowski, 
+ and D. J. Fox, Gaussian, Inc., Wallingford CT, 2013.
+ 
+ ******************************************
+ Gaussian 09:  ES64L-G09RevD.01 24-Apr-2013
+                14-Mar-2022 
+ ******************************************
+ %chk=/scratch/scr/ybyygu//o2.chk
+ %nproc=4
+ Will use up to    4 processors via shared memory.
+ %mem=2GB
+ ----------------------------------------------------------------------
+ #p 6-311+g(d,p) geom=connectivity scrf(pcm,solvent=water) b3lyp iop(5/
+ 33=1) nosymm extraoverlay
+ ----------------------------------------------------------------------
+ Additional overlay cards (at end):
+ ------------------------------
+ 8/7=1,10=4/1; 9/16=-3/6; 6//8;
+ ------------------------------
+ 1/38=1,57=2/1;
+ 2/12=2,15=1,17=6,18=5,40=1/2;
+ 3/5=4,6=6,7=111,11=2,16=1,25=1,30=1,70=2201,72=1,74=-5/1,2,3;
+ 4//1;
+ 5/5=2,33=1,38=5,53=1/2;
+ 6/7=2,8=2,9=2,10=2,28=1/1;
+ 8/7=1,10=4/1;
+ 9/16=-3/6;
+ 6//8;
+ 99/5=1,9=1/99;
+ Leave Link    1 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.2
+ (Enter /share/apps/gaussian/G09D01/g09/l101.exe)
+ -------------------
+ Title Card Required
+ -------------------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 3
+ O                    -3.33903  -1.01196   0. 
+ O                    -4.50063  -1.01196   0. 
+ 
+ NAtoms=      2 NQM=        2 NQMF=       0 NMMI=      0 NMMIF=      0
+                NMic=       0 NMicF=      0.
+                    Isotopes and Nuclear Properties:
+ (Nuclear quadrupole moments (NQMom) in fm**2, nuclear magnetic moments (NMagM)
+  in nuclear magnetons)
+
+  Atom         1           2
+ IAtWgt=          16          16
+ AtmWgt=  15.9949146  15.9949146
+ NucSpn=           0           0
+ AtZEff=   0.0000000   0.0000000
+ NQMom=    0.0000000   0.0000000
+ NMagM=    0.0000000   0.0000000
+ AtZNuc=   8.0000000   8.0000000
+ Leave Link  101 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.4
+ (Enter /share/apps/gaussian/G09D01/g09/l202.exe)
+                          Input orientation:                          
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0       -3.339026   -1.011956    0.000000
+      2          8           0       -4.500626   -1.011956    0.000000
+ ---------------------------------------------------------------------
+ Symmetry turned off by external request.
+ Stoichiometry    O2(3)
+ Framework group  D*H[C*(O.O)]
+ Deg. of freedom     1
+ Full point group                 D*H     NOp   8
+ Rotational constants (GHZ):      0.0000000     46.8330086     46.8330086
+ Leave Link  202 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.0
+ (Enter /share/apps/gaussian/G09D01/g09/l301.exe)
+ Standard basis: 6-311+G(d,p) (5D, 7F)
+ Ernie: Thresh=  0.10000D-02 Tol=  0.10000D-05 Strict=F.
+    44 basis functions,    72 primitive gaussians,    46 cartesian basis functions
+     9 alpha electrons        7 beta electrons
+       nuclear repulsion energy        29.1557690683 Hartrees.
+ IExCor=  402 DFT=T Ex+Corr=B3LYP ExCW=0 ScaHFX=  0.200000
+ ScaDFX=  0.800000  0.720000  1.000000  0.810000 ScalE2=  1.000000  1.000000
+ IRadAn=      0 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
+ NAtoms=    2 NActive=    2 NUniq=    2 SFac= 1.00D+00 NAtFMM=   60 NAOKFM=F Big=F
+ Integral buffers will be    131072 words long.
+ Raffenetti 2 integral format.
+ Two-electron integral symmetry is turned off.
+ ------------------------------------------------------------------------------
+ Polarizable Continuum Model (PCM)
+ =================================
+ Model                : PCM (using non-symmetric T matrix).
+ Atomic radii         : UFF (Universal Force Field).
+ Polarization charges : Total charges.
+ Charge compensation  : None.
+ Solution method      : On-the-fly selection.
+ Cavity type          : Scaled VdW (van der Waals Surface) (Alpha=1.100).
+ Cavity algorithm     : GePol (No added spheres)
+                        Default sphere list used, NSphG=    2.
+                        Lebedev-Laikov grids with approx.  5.0 points / Ang**2.
+                        Smoothing algorithm: Karplus/York (Gamma=1.0000).
+                        Polarization charges: spherical gaussians, with
+                                              point-specific exponents (IZeta= 3).
+                        Self-potential: point-specific (ISelfS= 7).
+                        Self-field    : sphere-specific E.n sum rule (ISelfD= 2).
+ Solvent              : Water, Eps=  78.355300 Eps(inf)=   1.777849
+ ------------------------------------------------------------------------------
+ Spheres list:
+ ISph  on   Nord     Re0    Alpha      Xe            Ye            Ze
+    1   O      1    1.7500  1.100     -3.339026     -1.011956      0.000000
+    2   O      2    1.7500  1.100     -4.500626     -1.011956      0.000000
+ ------------------------------------------------------------------------------
+ GePol: Number of generator spheres                  =       2
+ GePol: Total number of spheres                      =       2
+ GePol: Number of exposed spheres                    =       2 (100.00%)
+ GePol: Number of points                             =     442
+ GePol: Average weight of points                     =       0.14
+ GePol: Minimum weight of points                     =   0.15D-05
+ GePol: Maximum weight of points                     =    0.16997
+ GePol: Number of points with low weight             =      16
+ GePol: Fraction of low-weight points (<1% of avg)   =       3.62%
+ GePol: Cavity surface area                          =     60.655 Ang**2
+ GePol: Cavity volume                                =     43.009 Ang**3
+ Leave Link  301 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.2
+ (Enter /share/apps/gaussian/G09D01/g09/l302.exe)
+ NPDir=0 NMtPBC=     1 NCelOv=     1 NCel=       1 NClECP=     1 NCelD=      1
+         NCelK=      1 NCelE2=     1 NClLst=     1 CellRange=     0.0.
+ One-electron integrals computed using PRISM.
+ NBasis=    44 RedAO= T EigKep=  6.44D-04  NBF=    44
+ NBsUse=    44 1.00D-06 EigRej= -1.00D+00 NBFU=    44
+ Precomputing XC quadrature grid using
+ IXCGrd= 4 IRadAn=           0 IRanWt=          -1 IRanGd=           0 AccXCQ= 0.00D+00.
+ Generated NRdTot=       0 NPtTot=           0 NUsed=           0 NTot=          32
+ NSgBfM=    46    46    46    46    46 MxSgAt=     2 MxSgA2=     2.
+ Leave Link  302 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.4
+ (Enter /share/apps/gaussian/G09D01/g09/l303.exe)
+ DipDrv:  MaxL=1.
+ Leave Link  303 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.1
+ (Enter /share/apps/gaussian/G09D01/g09/l401.exe)
+ ExpMin= 8.45D-02 ExpMax= 8.59D+03 ExpMxC= 1.30D+03 IAcc=2 IRadAn=         4 AccDes= 0.00D+00
+ Harris functional with IExCor=  402 and IRadAn=       4 diagonalized for initial guess.
+ HarFok:  IExCor=  402 AccDes= 0.00D+00 IRadAn=         4 IDoV= 1 UseB2=F ITyADJ=14
+ ICtDFT=  3500011 ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ FoFCou: FMM=F IPFlag=           0 FMFlag=      100000 FMFlg1=           0
+         NFxFlg=           0 DoJE=T BraDBF=F KetDBF=T FulRan=T
+         wScrn=  0.000000 ICntrl=     500 IOpCl=  0 I1Cent=   200000004 NGrid=           0
+         NMat0=    1 NMatS0=      1 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
+ Symmetry not used in FoFCou.
+ Harris En= -150.315199342104    
+ JPrj=0 DoOrth=F DoCkMO=F.
+ Initial guess <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0000 S= 1.0000
+ Leave Link  401 at Mon Mar 14 20:04:14 2022, MaxMem=   268435456 cpu:         0.4
+ (Enter /share/apps/gaussian/G09D01/g09/l502.exe)
+ A Direct SCF calculation will be performed.
+ UHF open shell SCF:
+ Using DIIS extrapolation, IDIIS=  1040.
+ Two-electron integral symmetry not used.
+ ReadGW:  IGet=1 IStart=        6652 Next=        6652 LGW=           0.
+ NBasis=       44 NAllTT=     1081 NAllSq=     2116 NWIIB=         0
+ INEq=        418 LenNEq=        0 IIJ=         805 ID=          915
+ IDD=        3031 IDA=         915 IDB=        1996 IF=         3596
+ IFF=        5712 IFA=        3596 IFB=        4677 IScr2=      6277
+ IV=         6652 IBuf2E=     6652 IMin1=     25454 IMin=      25454
+ IV=        25454 IOpCl=         1
+ SetICI:  IOpClM=           1 LR1=              1 LR2=              1 LR3=              0
+          LRAOJ=       490545 InStor=           3 jStart=       25454 jR1=          25454
+          jR2=         515999 jR3=        1006544 LenR=        490545 jVInt=       515999
+          jVSAO=      1006544 jVPerm=     1006544 MDV=      268435456
+ Keep R1 and R2 ints in memory in canonical form, NReq=4095323.
+ IVT=       25454 IEndB=       25454 NGot=   268435456 MDV=   267428913
+ LenX=   267428913 LenY=   267426356
+ Requested convergence on RMS density matrix=1.00D-08 within 128 cycles.
+ Requested convergence on MAX density matrix=1.00D-06.
+ Requested convergence on             energy=1.00D-06.
+ No special actions if energy rises.
+ FoFCou: FMM=F IPFlag=           0 FMFlag=           0 FMFlg1=           0
+         NFxFlg=           0 DoJE=F BraDBF=F KetDBF=F FulRan=T
+         wScrn=  0.000000 ICntrl=     600 IOpCl=  0 I1Cent=           0 NGrid=           0
+         NMat0=    1 NMatS0=    990 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
+ Symmetry not used in FoFCou.
+ FoFCou:  KetSym=F NOpSet=  1 NOpAb=1 NOp=  1.
+ FoFCou:  CnvScl= 1.00D+00 Thresh= 1.00D-10 IAcrcy=      10.
+ PrismS was handed   267907150 working-precision words and    78 shell-pairs
+ FoFCou: LinMIO=F DoNuc=F BraDBF=F KetDBF=F HaveP=F PDBF=F HaveZ=F HaveW=F
+         NIJTC =       6 NIJTAt=       0 NIJTCD=       0 NIJTT =       6
+         IJTBeg=       1 IJTEnd=       6 KLTBeg=       1 KLTEnd=       6
+         IPTBeg=       1 IPTEnd=       6 IPTBCv=       1 IPTECv=       6
+         IZTBeg=       1 IZTEnd=       6 IZTBCv=       1 IZTECv=       6
+         IWTBeg=       7 IWTEnd=       6 IWTBCv=       7 IWTECv=       6
+         INTBeg=       1 INTEnd=       0 IFTBCv=       1 IFTECv=       6
+ NCel replicated for PrismC:     1
+ CoulSu:  IncDef=  1024 NBBP=           3081 NTPThr=   100 NPartT=    4 Incr=           7 LDynOK=F.
+ CoulSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=1 LenDen=           0 LWGrdD=           0 DoCopy=F.
+ Enter PrismC: JobTyp=20 DoJE=F Cont=F.
+ PrismC:  IPart=     0 DynPar=F LinDyn=F Incr=           7 UseFst=F UseS4=T IGathr=1.
+ Enter PrismC: JobTyp=20 DoJE=F Cont=F.
+ PrismC was handed    66973979 working-precision words and    78 shell-pairs
+ Enter PrismC: JobTyp=20 DoJE=F Cont=F.
+ Enter PrismC: JobTyp=20 DoJE=F Cont=F.
+ PrismC was handed    66973979 working-precision words and    78 shell-pairs
+ PrismC was handed    66973979 working-precision words and    78 shell-pairs
+ PrismC was handed    66973979 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=         805 NShNF=         805 NShFF=           0 NBatch=          91 AvBLen=         8.8
+ IPart=  3 NShTot=         741 NShNF=         741 NShFF=           0 NBatch=          78 AvBLen=         9.5
+ IPart=  1 NShTot=         776 NShNF=         776 NShFF=           0 NBatch=          83 AvBLen=         9.3
+ IPart=  2 NShTot=         759 NShNF=         759 NShFF=           0 NBatch=          80 AvBLen=         9.5
+ CoulSu:  NxtVal=             29.
+ Selected VarAcc= 1.
+
+ Cycle   1  Pass 1  IDiag  1:
+ One-electron energy=-0.263647908995D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.09316516 DotPB=          1.30706954
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.19377052 DotFB=          0.65861672
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          97.936376737810
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  2         3704 of         3764 points in       8 batches and       34 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4077 of         4166 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         3780 of         3836 points in       8 batches and       39 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.062445074198 Ec=          -0.735968077437
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.137963586175
+ Inv3:  Mode=1 IEnd=      586092.
+ Iteration    1 A*A^-1 deviation from unit magnitude is 3.11D-15 for    402.
+ Iteration    1 A*A^-1 deviation from orthogonality  is 1.15D-15 for    409     68.
+ Iteration    1 A^-1*A deviation from unit magnitude is 3.33D-15 for    402.
+ Iteration    1 A^-1*A deviation from orthogonality  is 6.20D-16 for    425    357.
+ MTm1RL: DoTran=F ISelfD= 2 NTs=  442
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263647908995D+03 ETwo= 0.841379635862D+02 Energy=-0.179510524255D+03
+ 1/2 <PG(P)>=          97.936376737810
+ Ex=         -13.062445074198 Ec=          -0.735968077437
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.137963586175
+ Erf(P)=          -0.000578845929
+ E= -150.354755186710    
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0000 S= 1.0000
+ DIIS: error= 2.72D-02 at cycle   1 NSaved=   1.
+ NSaved= 1 IEnMin= 1 EnMin= -150.354755186710     IErMin= 1 ErrMin= 2.72D-02
+ ErrMax= 2.72D-02  0.00D+00 EMaxC= 1.00D-01 BMatC= 8.43D-02 BMatP= 8.43D-02
+ IDIUse=3 WtCom= 7.28D-01 WtEn= 2.72D-01
+ Coeff-Com:  0.100D+01
+ Coeff-En:   0.100D+01
+ Coeff:      0.100D+01
+ Gap=     0.390 Goal=   None    Shift=    0.000
+ Gap=     0.382 Goal=   None    Shift=    0.000
+ GapD=    0.382 DampG=1.000 DampE=0.500 DampFc=0.5000 IDamp=-1.
+ Damping current iteration by 5.00D-01
+ RMSDP=3.12D-03 MaxDP=3.36D-02              OVMax= 4.32D-02
+
+ Cycle   2  Pass 1  IDiag  1:
+ One-electron energy=-0.263844034667D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.13657624 DotPB=          1.29413850
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.29786951 DotFB=          0.67786780
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  100011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.137780459314
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  2         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         3669 of         3720 points in       8 batches and       36 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         3669 of         3720 points in       8 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.074111618379 Ec=          -0.736251999709
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.327416841226
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263844034667D+03 ETwo= 0.843274168412D+02 Energy=-0.179516993890D+03
+ 1/2 <PG(P)>=          98.137780459314
+ Ex=         -13.074111618379 Ec=          -0.736251999709
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.327416841226
+ Erf(P)=          -0.000376064361
+ E= -150.361224821782     Delta-E=       -0.006469635072 Rises=F Damp=T
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0046 S= 1.0015
+ DIIS: error= 8.85D-03 at cycle   2 NSaved=   2.
+ NSaved= 2 IEnMin= 2 EnMin= -150.361224821782     IErMin= 2 ErrMin= 8.85D-03
+ ErrMax= 8.85D-03  0.00D+00 EMaxC= 1.00D-01 BMatC= 1.47D-02 BMatP= 8.43D-02
+ IDIUse=3 WtCom= 9.11D-01 WtEn= 8.85D-02
+ Coeff-Com: -0.582D+00 0.158D+01
+ Coeff-En:   0.000D+00 0.100D+01
+ Coeff:     -0.531D+00 0.153D+01
+ Gap=     0.382 Goal=   None    Shift=    0.000
+ Gap=     0.376 Goal=   None    Shift=    0.000
+ RMSDP=1.16D-03 MaxDP=1.14D-02 DE=-6.47D-03 OVMax= 1.38D-02
+
+ Cycle   3  Pass 1  IDiag  1:
+ One-electron energy=-0.263797001770D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.14963971 DotPB=          1.29136147
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.28085862 DotFB=          0.70151650
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.077651024435
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  2         3704 of         3764 points in       8 batches and       34 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         3669 of         3720 points in       8 batches and       36 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4188 of         4282 points in       9 batches and       28 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.067975056197 Ec=          -0.735598304284
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.274077663953
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263797001770D+03 ETwo= 0.842740776640D+02 Energy=-0.179523226753D+03
+ 1/2 <PG(P)>=          98.077651024435
+ Ex=         -13.067975056197 Ec=          -0.735598304284
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.274077663953
+ Erf(P)=          -0.000302646976
+ E= -150.367457684550     Delta-E=       -0.006232862768 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0067 S= 1.0022
+ DIIS: error= 2.22D-03 at cycle   3 NSaved=   3.
+ NSaved= 3 IEnMin= 3 EnMin= -150.367457684550     IErMin= 3 ErrMin= 2.22D-03
+ ErrMax= 2.22D-03  0.00D+00 EMaxC= 1.00D-01 BMatC= 5.17D-04 BMatP= 1.47D-02
+ IDIUse=3 WtCom= 9.78D-01 WtEn= 2.22D-02
+ Coeff-Com: -0.135D+00 0.296D+00 0.839D+00
+ Coeff-En:   0.000D+00 0.000D+00 0.100D+01
+ Coeff:     -0.132D+00 0.289D+00 0.842D+00
+ Gap=     0.388 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=2.62D-04 MaxDP=3.90D-03 DE=-6.23D-03 OVMax= 4.93D-03
+
+ Cycle   4  Pass 1  IDiag  1:
+ One-electron energy=-0.263917517651D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15186914 DotPB=          1.28778538
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.33868085 DotFB=          0.70595417
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.211419978831
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  0         3815 of         3880 points in       8 batches and       36 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4077 of         4166 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  2         3669 of         3720 points in       8 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.080976747934 Ec=          -0.735956324549
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.394486906348
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263917517651D+03 ETwo= 0.843944869063D+02 Energy=-0.179523316471D+03
+ 1/2 <PG(P)>=          98.211419978831
+ Ex=         -13.080976747934 Ec=          -0.735956324549
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.394486906348
+ Erf(P)=          -0.000285726047
+ E= -150.367547402408     Delta-E=       -0.000089717858 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0075 S= 1.0025
+ DIIS: error= 1.09D-03 at cycle   4 NSaved=   4.
+ NSaved= 4 IEnMin= 4 EnMin= -150.367547402408     IErMin= 4 ErrMin= 1.09D-03
+ ErrMax= 1.09D-03  0.00D+00 EMaxC= 1.00D-01 BMatC= 1.09D-04 BMatP= 5.17D-04
+ IDIUse=3 WtCom= 9.89D-01 WtEn= 1.09D-02
+ Coeff-Com:  0.898D-02-0.572D-01 0.286D+00 0.762D+00
+ Coeff-En:   0.000D+00 0.000D+00 0.000D+00 0.100D+01
+ Coeff:      0.888D-02-0.565D-01 0.283D+00 0.765D+00
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=8.07D-05 MaxDP=1.73D-03 DE=-8.97D-05 OVMax= 1.92D-03
+
+ Cycle   5  Pass 1  IDiag  1:
+ One-electron energy=-0.263872445916D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15034209 DotPB=          1.28854058
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.31743745 DotFB=          0.70662604
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.161411023942
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  1         4081 of         4172 points in       9 batches and       32 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  2         3957 of         4034 points in       8 batches and       29 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4077 of         4166 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         3669 of         3720 points in       8 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.076238759007 Ec=          -0.735774759065
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.349397505870
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263872445916D+03 ETwo= 0.843493975059D+02 Energy=-0.179523336428D+03
+ 1/2 <PG(P)>=          98.161411023942
+ Ex=         -13.076238759007 Ec=          -0.735774759065
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.349397505870
+ Erf(P)=          -0.000288017696
+ E= -150.367567359254     Delta-E=       -0.000019956846 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0079 S= 1.0026
+ DIIS: error= 1.73D-04 at cycle   5 NSaved=   5.
+ NSaved= 5 IEnMin= 5 EnMin= -150.367567359254     IErMin= 5 ErrMin= 1.73D-04
+ ErrMax= 1.73D-04  0.00D+00 EMaxC= 1.00D-01 BMatC= 2.30D-06 BMatP= 1.09D-04
+ IDIUse=3 WtCom= 9.98D-01 WtEn= 1.73D-03
+ Coeff-Com:  0.637D-02-0.124D-01-0.601D-01 0.416D-01 0.102D+01
+ Coeff-En:   0.000D+00 0.000D+00 0.000D+00 0.000D+00 0.100D+01
+ Coeff:      0.636D-02-0.124D-01-0.600D-01 0.416D-01 0.102D+01
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=1.85D-05 MaxDP=2.64D-04 DE=-2.00D-05 OVMax= 3.27D-04
+
+ Cycle   6  Pass 1  IDiag  1:
+ One-electron energy=-0.263878638510D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15037508 DotPB=          1.28828607
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.32038991 DotFB=          0.70697804
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.168328898623
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  2         3704 of         3764 points in       8 batches and       34 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4077 of         4166 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         3780 of         3836 points in       8 batches and       39 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.076948191283 Ec=          -0.735791660477
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.355589046862
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263878638510D+03 ETwo= 0.843555890469D+02 Energy=-0.179523336947D+03
+ 1/2 <PG(P)>=          98.168328898623
+ Ex=         -13.076948191283 Ec=          -0.735791660477
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.355589046862
+ Erf(P)=          -0.000287484024
+ E= -150.367567878732     Delta-E=       -0.000000519479 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0080 S= 1.0027
+ DIIS: error= 1.20D-05 at cycle   6 NSaved=   6.
+ NSaved= 6 IEnMin= 6 EnMin= -150.367567878732     IErMin= 6 ErrMin= 1.20D-05
+ ErrMax= 1.20D-05  0.00D+00 EMaxC= 1.00D-01 BMatC= 9.73D-09 BMatP= 2.30D-06
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Coeff-Com: -0.939D-04 0.357D-03 0.970D-03-0.101D-01-0.136D-01 0.102D+01
+ Coeff:     -0.939D-04 0.357D-03 0.970D-03-0.101D-01-0.136D-01 0.102D+01
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=8.97D-07 MaxDP=1.79D-05 DE=-5.19D-07 OVMax= 1.87D-05
+
+ Cycle   7  Pass 1  IDiag  1:
+ One-electron energy=-0.263878232890D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15035604 DotPB=          1.28828993
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.32019740 DotFB=          0.70698139
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.167880243416
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  1         4003 of         4034 points in       8 batches and       35 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4918 of         5068 points in      12 batches and       40 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  2         2346 of         2396 points in       5 batches and       11 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         4517 of         4594 points in       9 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.076906664317 Ec=          -0.735790115778
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.355183463322
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263878232890D+03 ETwo= 0.843551834633D+02 Energy=-0.179523336949D+03
+ 1/2 <PG(P)>=          98.167880243416
+ Ex=         -13.076906664317 Ec=          -0.735790115778
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.355183463322
+ Erf(P)=          -0.000287522050
+ E= -150.367567880677     Delta-E=       -0.000000001945 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0080 S= 1.0027
+ DIIS: error= 7.60D-07 at cycle   7 NSaved=   7.
+ NSaved= 7 IEnMin= 7 EnMin= -150.367567880677     IErMin= 7 ErrMin= 7.60D-07
+ ErrMax= 7.60D-07  0.00D+00 EMaxC= 1.00D-01 BMatC= 3.04D-11 BMatP= 9.73D-09
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Coeff-Com: -0.413D-04 0.792D-04 0.292D-03 0.410D-03-0.683D-02-0.591D-01
+ Coeff-Com:  0.107D+01
+ Coeff:     -0.413D-04 0.792D-04 0.292D-03 0.410D-03-0.683D-02-0.591D-01
+ Coeff:      0.107D+01
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=7.17D-08 MaxDP=1.21D-06 DE=-1.94D-09 OVMax= 1.45D-06
+
+ Cycle   8  Pass 1  IDiag  1:
+ One-electron energy=-0.263878246691D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15035604 DotPB=          1.28828912
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.32020393 DotFB=          0.70698172
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.167895557198
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  0         4179 of         4282 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  3         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         3713 of         3764 points in       8 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  2         3669 of         3720 points in       8 batches and       36 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.076908127890 Ec=          -0.735790165465
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.355197263843
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263878246691D+03 ETwo= 0.843551972638D+02 Energy=-0.179523336949D+03
+ 1/2 <PG(P)>=          98.167895557198
+ Ex=         -13.076908127890 Ec=          -0.735790165465
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.355197263843
+ Erf(P)=          -0.000287521639
+ E= -150.367567880686     Delta-E=       -0.000000000009 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0080 S= 1.0027
+ DIIS: error= 9.34D-08 at cycle   8 NSaved=   8.
+ NSaved= 8 IEnMin= 8 EnMin= -150.367567880686     IErMin= 8 ErrMin= 9.34D-08
+ ErrMax= 9.34D-08  0.00D+00 EMaxC= 1.00D-01 BMatC= 4.37D-13 BMatP= 3.04D-11
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Coeff-Com:  0.742D-05-0.160D-04-0.504D-04 0.788D-05 0.119D-02 0.252D-02
+ Coeff-Com: -0.211D+00 0.121D+01
+ Coeff:      0.742D-05-0.160D-04-0.504D-04 0.788D-05 0.119D-02 0.252D-02
+ Coeff:     -0.211D+00 0.121D+01
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=1.14D-08 MaxDP=1.33D-07 DE=-9.27D-12 OVMax= 2.35D-07
+
+ Cycle   9  Pass 1  IDiag  1:
+ One-electron energy=-0.263878247148D+03
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotPA=          4.15035606 DotPB=          1.28828904
+ FoFMem:  NOp1=  1 NOp2=  1 NOpUse=  1 NSOp=  1 NMatL=     1 DoSAO=F
+ IM=     1 IB=1 DotFA=         86.32020415 DotFB=          0.70698174
+ Calling FoFDFT with Acc= 0.00D+00 ICntrl=  400011 IRadAn=       0.
+ IMat=  1 1/2 <PG(P)>=          98.167896064909
+ Remaining memory in FofDFT      255.04 Mw
+ CkSvGd:  ISavGI=        -1 IRadAn=       4 IRASav=       0 ISavGd=        -1.
+ CalDSu:  NPrtUS=   4 ThrOK=T IAlg=1 NPAlg=2 DoDPD=T LenP=        1081 LenD1P=             0.
+ IPart=  0 IRanGd=          0 ScrnBf=T ScrnGd=T RCrit=4.00D+00 DoMicB=T.
+ IPart=  3         3815 of         3880 points in       8 batches and       36 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  2         4223 of         4326 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  1         4109 of         4198 points in       9 batches and       25 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IPart=  0         3637 of         3688 points in       8 batches and       37 microbatches, Max-NSigAt=       2 Max-NSgAt2=       2
+ IMat=  1 Ex=         -13.076908176777 Ec=          -0.735790167274
+ 1/2 <PJ(P)> + E(ex) + E(corr)=          84.355197720858
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ IMat=  1 EOne=-0.263878247148D+03 ETwo= 0.843551977209D+02 Energy=-0.179523336949D+03
+ 1/2 <PG(P)>=          98.167896064909
+ Ex=         -13.076908176777 Ec=          -0.735790167274
+ 1/2 <PG(P)> + E(ex) + E(corr)=          84.355197720858
+ Erf(P)=          -0.000287521609
+ E= -150.367567880687     Delta-E=        0.000000000000 Rises=F Damp=F
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0080 S= 1.0027
+ DIIS: error= 5.22D-09 at cycle   9 NSaved=   9.
+ NSaved= 9 IEnMin= 9 EnMin= -150.367567880687     IErMin= 9 ErrMin= 5.22D-09
+ ErrMax= 5.22D-09  0.00D+00 EMaxC= 1.00D-01 BMatC= 1.59D-15 BMatP= 4.37D-13
+ IDIUse=1 WtCom= 1.00D+00 WtEn= 0.00D+00
+ Coeff-Com:  0.162D-06-0.271D-06 0.844D-06-0.536D-06-0.116D-04 0.218D-04
+ Coeff-Com:  0.610D-02-0.678D-01 0.106D+01
+ Coeff:      0.162D-06-0.271D-06 0.844D-06-0.536D-06-0.116D-04 0.218D-04
+ Coeff:      0.610D-02-0.678D-01 0.106D+01
+ Gap=     0.386 Goal=   None    Shift=    0.000
+ Gap=     0.377 Goal=   None    Shift=    0.000
+ RMSDP=5.56D-10 MaxDP=5.96D-09 DE=-2.56D-13 OVMax= 8.56D-09
+
+ FoFPCM: IWhat =11 DoEle= T DoNuc= T Delta=F   Init=T Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= T NMatP=  1 NVecW=  0 NTs=     442
+ FoFPCM: IWhat =13 DoEle= F DoNuc= F Delta=F   Init=F Scale= -0.159155
+         MinMlt= 1 MaxMlt= 1 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ FoFPCM: IWhat = 4 DoEle= T DoNuc= F Delta=F   Init=F Scale=  1.000000
+         MinMlt= 0 MaxMlt= 0 DoP2C= F NMatP=  0 NVecW=  1 NTs=     442
+ DipInt: DoE/N= T T RetVal/Mat= T F Init=T NMatP=  1 IDeriv=0 Min/MaxMlt=  1  1
+ Entering OneElI...
+ Multipole integrals L=1 to 1 MinM= 0 MaxM= 0.
+ Requested accuracy = 0.1000D-12
+ PrsmSu:  NPrtUS=   1 ThrOK=F IAlg=1 NPAlg=1 LenDen=           0.
+ Prism:   IPart=     0 DynPar=F LinDyn=F Incr=           1.
+ PRISM was handed   267206784 working-precision words and    78 shell-pairs
+ IPart=  0 NShTot=          78 NBatch=          13 AvBLen=         6.0
+ PrSmSu:  NxtVal=              2.
+ ------ PCM electric reaction field and reaction potential at the nuclei ------
+ Atom  Charge        Field components (X,Y,Z)       Strength   Potential (a.u.)
+   1    8.00    0.001331    0.000000    0.000000    0.001331   -0.002402
+   2    8.00   -0.001331    0.000000    0.000000    0.001331   -0.002402
+ Error on total polarization charges =  0.00340
+ Sphere  On Atom  Surface  Charge   Gel     Gcav    Gdr
+    1      O1      30.33  -0.002   -0.09    0.00    0.00
+    2      O2      30.33  -0.002   -0.09    0.00    0.00
+ SCF Done:  E(UB3LYP) =  -150.367567881     A.U. after    9 cycles
+            NFock=  9  Conv=0.56D-09     -V/T= 2.0012
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0080 S= 1.0027
+ <L.S>= 0.000000000000E+00
+ KE= 1.501859792190D+02 PE=-4.140642263673D+02 EE= 8.435491019925D+01
+ Annihilation of the first spin contaminant:
+ S**2 before annihilation     2.0080,   after     2.0000
+ Leave Link  502 at Mon Mar 14 20:04:15 2022, MaxMem=   268435456 cpu:         3.0
+ (Enter /share/apps/gaussian/G09D01/g09/l601.exe)
+ Copying SCF densities to generalized density rwf, IOpCl= 1 IROHF=0.
+
+ **********************************************************************
+
+            Population analysis using the SCF density.
+
+ **********************************************************************
+
+ Alpha  occ. eigenvalues --  -19.28819 -19.28794  -1.35993  -0.83457  -0.59213
+ Alpha  occ. eigenvalues --   -0.59213  -0.57015  -0.30558  -0.30558
+ Alpha virt. eigenvalues --    0.08084   0.09084   0.12749   0.12749   0.19179
+ Alpha virt. eigenvalues --    0.20443   0.20443   0.30097   0.33714   0.91946
+ Alpha virt. eigenvalues --    0.91946   0.92442   0.95858   0.99629   0.99629
+ Alpha virt. eigenvalues --    1.17266   1.48021   2.21832   2.21832   2.49942
+ Alpha virt. eigenvalues --    2.49942   2.81723   2.81723   2.96084   3.50199
+ Alpha virt. eigenvalues --    3.50199   3.87121   4.69280   4.69280   4.85621
+ Alpha virt. eigenvalues --    4.96821   4.96821   6.21307  49.60151  49.80393
+  Beta  occ. eigenvalues --  -19.25769 -19.25729  -1.30461  -0.74635  -0.52870
+  Beta  occ. eigenvalues --   -0.48995  -0.48995
+  Beta virt. eigenvalues --   -0.11311  -0.11311   0.08735   0.09819   0.13570
+  Beta virt. eigenvalues --    0.13570   0.19119   0.21708   0.21708   0.33468
+  Beta virt. eigenvalues --    0.35147   0.93454   0.96056   0.96056   0.97333
+  Beta virt. eigenvalues --    1.04279   1.04279   1.19927   1.51883   2.26416
+  Beta virt. eigenvalues --    2.26416   2.58490   2.58490   2.91351   2.91351
+  Beta virt. eigenvalues --    3.00815   3.55842   3.55842   3.90508   4.76792
+  Beta virt. eigenvalues --    4.76792   4.87612   5.04506   5.04506   6.24629
+  Beta virt. eigenvalues --   49.63179  49.83392
+          Condensed to atoms (all electrons):
+               1          2
+     1  O    7.796865   0.203135
+     2  O    0.203135   7.796865
+          Atomic-Atomic Spin Densities.
+               1          2
+     1  O    1.475206  -0.475206
+     2  O   -0.475206   1.475206
+ Mulliken charges and spin densities:
+               1          2
+     1  O    0.000000   1.000000
+     2  O    0.000000   1.000000
+ Sum of Mulliken charges =   0.00000   2.00000
+ Mulliken charges and spin densities with hydrogens summed into heavy atoms:
+               1          2
+     1  O    0.000000   1.000000
+     2  O    0.000000   1.000000
+ Electronic spatial extent (au):  <R**2>=            978.7372
+ Charge=              0.0000 electrons
+ Dipole moment (field-independent basis, Debye):
+    X=              0.0000    Y=              0.0000    Z=              0.0000  Tot=              0.0000
+ Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=            -10.9374   YY=            -10.0254   ZZ=            -10.0254
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Traceless Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=             -0.6080   YY=              0.3040   ZZ=              0.3040
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Octapole moment (field-independent basis, Debye-Ang**2):
+  XXX=            128.6180  YYY=             30.4357  ZZZ=              0.0000  XYY=             39.2978
+  XXY=             11.0681  XXZ=              0.0000  XZZ=             39.2978  YZZ=             10.1452
+  YYZ=              0.0000  XYZ=              0.0000
+ Hexadecapole moment (field-independent basis, Debye-Ang**3):
+ XXXX=          -1036.6053 YYYY=            -68.9306 ZZZZ=             -7.3314 XXXY=           -130.1557
+ XXXZ=              0.0000 YYYX=           -119.3028 YYYZ=              0.0000 ZZZX=              0.0000
+ ZZZY=              0.0000 XXYY=           -171.4821 XXZZ=           -160.2816 YYZZ=            -12.7103
+ XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=            -39.7676
+ N-N= 2.915576906832D+01 E-N=-4.140642262720D+02  KE= 1.501859792190D+02
+                          Isotropic Fermi Contact Couplings
+        Atom                 a.u.       MegaHertz       Gauss      10(-4) cm-1
+     1  O(17)              0.08379     -25.39774      -9.06254      -8.47177
+     2  O(17)              0.08379     -25.39774      -9.06254      -8.47177
+ --------------------------------------------------------
+       Center         ----  Spin Dipole Couplings  ----
+                      3XX-RR        3YY-RR        3ZZ-RR
+ --------------------------------------------------------
+     1   Atom       -2.502007      1.251004      1.251004
+     2   Atom       -2.502007      1.251004      1.251004
+ --------------------------------------------------------
+                        XY            XZ            YZ
+ --------------------------------------------------------
+     1   Atom        0.000000      0.000000      0.000000
+     2   Atom        0.000000      0.000000      0.000000
+ --------------------------------------------------------
+
+
+ ---------------------------------------------------------------------------------
+              Anisotropic Spin Dipole Couplings in Principal Axis System
+ ---------------------------------------------------------------------------------
+
+       Atom             a.u.   MegaHertz   Gauss  10(-4) cm-1        Axes
+
+              Baa    -2.5020   181.043    64.601    60.390  1.0000  0.0000  0.0000
+     1 O(17)  Bbb     1.2510   -90.522   -32.300   -30.195  0.0000 -0.3643  0.9313
+              Bcc     1.2510   -90.522   -32.300   -30.195  0.0000  0.9313  0.3643
+ 
+              Baa    -2.5020   181.043    64.601    60.390  1.0000  0.0000  0.0000
+     2 O(17)  Bbb     1.2510   -90.522   -32.300   -30.195  0.0000  0.0435  0.9991
+              Bcc     1.2510   -90.522   -32.300   -30.195  0.0000  0.9991 -0.0435
+ 
+
+ ---------------------------------------------------------------------------------
+
+ No NMR shielding tensors so no spin-rotation constants.
+ Leave Link  601 at Mon Mar 14 20:04:15 2022, MaxMem=   268435456 cpu:         0.5
+ (Enter /share/apps/gaussian/G09D01/g09/l801.exe)
+ DoSCS=F DFT=T ScalE2(SS,OS)=  1.000000  1.000000
+ ExpMin= 8.45D-02 ExpMax= 8.59D+03 ExpMxC= 1.30D+03 IAcc=3 IRadAn=         5 AccDes= 0.00D+00
+ HarFok:  IExCor=  205 AccDes= 0.00D+00 IRadAn=         5 IDoV=-2 UseB2=F ITyADJ=14
+ ICtDFT= 12500011 ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ Largest valence mixing into a core orbital is  2.45D-05
+ Largest core mixing into a valence orbital is  9.03D-06
+ Largest valence mixing into a core orbital is  3.67D-05
+ Largest core mixing into a valence orbital is  1.51D-05
+ Range of M.O.s used for correlation:     3    44
+ NBasis=    44 NAE=     9 NBE=     7 NFC=     2 NFV=     0
+ NROrb=     42 NOA=     7 NOB=     5 NVA=    35 NVB=    37
+
+ **** Warning!!: The largest alpha MO coefficient is  0.22758193D+02
+
+
+ **** Warning!!: The largest beta MO coefficient is  0.17012594D+02
+
+ Leave Link  801 at Mon Mar 14 20:04:15 2022, MaxMem=   268435456 cpu:         0.2
+ (Enter /share/apps/gaussian/G09D01/g09/l906.exe)
+ DoSCS=F DFT=T ScalE2(SS,OS)=  1.000000  1.000000
+ FulOut=F Deriv=F AODrv=F NAtomX=     2
+   MMem=        9890  MDisk=           7 MDiskD=           7
+  W3Min=       23828 MinDsk=       77592 NBas6D=          46
+ NBas2D=        1159    NTT=        1081    LW2=     2000000
+    MDV=   268417738 MDiskM=       80440 NBas2p=        1159
+ Fully in-core method, ICMem=     7409797.
+ IMap=   1   2   3   4   5   6   7
+ JobTyp=2 Pass  1 fully in-core, NPsUse=  4.
+ Compute canonical integrals.
+ FoFCou: FMM=F IPFlag=           0 FMFlag=           0 FMFlg1=           0
+         NFxFlg=           0 DoJE=F BraDBF=F KetDBF=F FulRan=T
+         wScrn=  0.000000 ICntrl=     600 IOpCl=  1 I1Cent=           0 NGrid=           0
+         NMat0=    1 NMatS0=   1159 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
+ Symmetry not used in FoFCou.
+ IMap=   1   2   3   4   5
+ JobTyp=3 Pass  1 fully in-core, NPsUse=  4.
+ Compute canonical integrals.
+ Spin components of T(2) and E(2):
+     alpha-alpha T2 =       0.1912645165D-01 E2=     -0.6748185095D-01
+     alpha-beta  T2 =       0.1397256845D+00 E2=     -0.3642781731D+00
+     beta-beta   T2 =       0.7629260704D-01 E2=     -0.1043875581D+00
+ The integrals were generated   2 times.
+ E2(B3LYP) =    -0.5361475822D+00 E(B3LYP) =    -0.15090371546285D+03
+ Leave Link  906 at Mon Mar 14 20:04:15 2022, MaxMem=   268435456 cpu:         0.9
+ (Enter /share/apps/gaussian/G09D01/g09/l608.exe)
+ IExCor=  100 DFT=F Ex=HF Corr=None ExCW=0 ScaHFX=  1.000000
+ ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
+ IRadAn=      4 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
+ IExCor=  205 DFT=T Ex=S Corr=VWN ExCW=0 ScaHFX=  0.000000
+ ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
+ IRadAn=      4 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
+ IExCor=  402 DFT=T Ex=B Corr=LYP ExCW=0 ScaHFX=  0.000000
+ ScaDFX=  1.000000  1.000000  1.000000  1.000000 ScalE2=  1.000000  1.000000
+ IRadAn=      4 IRanWt=     -1 IRanGd=            0 ICorTp=0 IEmpDi=  4
+ A total of   3 models will be applied.
+
+ Results using SCF density:
+ FoFJK:  IHMeth= 0 ICntrl=     500 DoSepK=F KAlg= 0 I1Cent=   0 FoldK=F
+ IRaf=         0 NMat=   2 IRICut=       1 DoRegI=T DoRafI=F ISym2E= 0.
+ FoFCou: FMM=F IPFlag=           0 FMFlag=           0 FMFlg1=           0
+         NFxFlg=           0 DoJE=F BraDBF=F KetDBF=F FulRan=T
+         wScrn=  0.000000 ICntrl=     500 IOpCl=  1 I1Cent=           0 NGrid=           0
+         NMat0=    2 NMatS0=      2 NMatT0=    0 NMatD0=    2 NMtDS0=    0 NMtDT0=    0
+ Symmetry not used in FoFCou.
+ ET=  150.185979 EV= -414.064226 EJ=  101.440848 EK=  -16.364758 ENuc=   29.155769
+
+ A=0 I=   1 IExCor=  100 IRadAn=       4 ScaHFX=  1.000000
+            ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ HFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFc=  0.000000  0.000000  1.000000  0.000000  0.000000
+            ENTVJ= -133.281630 Ex=  -16.364758 Ec=    0.000000 ETotM2e= -234.7224779846  ETot= -149.6463883600
+
+ A=0 I=   2 IExCor=  205 IRadAn=       4 ScaHFX=  0.000000
+            ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ HFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFc=  0.000000  0.000000  1.000000  0.000000  0.000000
+            ENTVJ= -133.281630 Ex=  -14.908981 Ec=   -1.426661 ETotM2e= -251.0581200302  ETot= -149.6172724856
+
+ A=0 I=   3 IExCor=  402 IRadAn=       4 ScaHFX=  0.000000
+            ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ HFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFx=  0.000000  0.000000  1.000000  0.000000  0.000000
+ DFc=  0.000000  0.000000  1.000000  0.000000  0.000000
+            ENTVJ= -133.281630 Ex=  -16.505819 Ec=   -0.573734 ETotM2e= -251.8020310325  ETot= -150.3611834879
+ Leave Link  608 at Mon Mar 14 20:04:16 2022, MaxMem=   268435456 cpu:         0.4
+ (Enter /share/apps/gaussian/G09D01/g09/l9999.exe)
+
+ This type of calculation cannot be archived.
+
+
+ ...THE PHYSICISTS HAVE MADE THEIR UNIVERSE, AND IF YOU DO NOT LIKE
+ IT, YOU MUST MAKE YOUR OWN.
+                               -- E. R. HARRISON IN "COSMOLOGY" (1980)
+ Job cpu time:       0 days  0 hours  0 minutes  7.0 seconds.
+ File lengths (MBytes):  RWF=      9 Int=      0 D2E=      0 Chk=      1 Scr=      1
+ Normal termination of Gaussian 09 at Mon Mar 14 20:04:16 2022.
