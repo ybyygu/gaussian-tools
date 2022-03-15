@@ -85,7 +85,7 @@ fn test_xdh_os_ss() {
 //  Erf(P)=          -0.000578845929
 fn parse_solvent(line: &str) -> Option<f64> {
     if line.starts_with(" Erf(P)= ") {
-        dbg!(line[9..].trim()).parse().ok()
+        line[9..].trim().parse().ok()
     } else {
         None
     }
