@@ -23,7 +23,11 @@ pub fn enter_main() -> Result<()> {
 
     let xdh = xDH::collect_from_gaussian(&args.outfile)?;
     let energy_xyg3 = xdh.energy(Functional::XYG3);
-    println!("  E(XYG3)    =  {energy_xyg3:16.8}");
+    eprintln!("  E(XYG3)    =  {energy_xyg3:16.8} A.U.");
+    println!("@model_properties_format_version 0.1");
+    println!("# XYG3 energy: convert from a.u. to eV");
+    println!("@energy unit_factor=27.211386024367243");
+    println!("{energy_xyg3:16.8}");
 
     Ok(())
 }
