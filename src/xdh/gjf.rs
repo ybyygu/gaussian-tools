@@ -103,7 +103,8 @@ fn test_xdh_gjf_rewrite_gen() -> Result<()> {
 // [[file:../../xo-tools.note::8b2a8f8c][8b2a8f8c]]
 impl xDH {
     /// Rewrite Gaussian input `s` to make it suitable for XYG3 type calculation
-    pub fn rewrite_gaussian_input(s: &str) -> Result<String> {
+    pub fn rewrite_gaussian_input(f: &Path) -> Result<String> {
+        let s = gut::fs::read_file(f)?;
         let re = Regex::new(r"\n\s*\n").unwrap();
         let sections = re.split(s.trim()).collect_vec();
         let n = sections.len();
@@ -113,7 +114,12 @@ impl xDH {
 
         let route = rewrite_route_section(&sections[0])?;
         let other: String = sections[1..n - 1].iter().map(|x| x.to_string()).collect();
+
+        // for avoid relative path issue when including external file
+        let cwd = std::env::current_dir()?;
+        std::env::set_current_dir(f.parent().unwrap());
         let gen = rewrite_final_section(dbg!(&sections[n - 1]))?;
+        std::env::set_current_dir(cwd);
 
         let s = format!("{route}\n{other}\n{gen}");
 
@@ -126,11 +132,7 @@ impl xDH {
 #[test]
 fn test_rewrite_input() -> Result<()> {
     let f: &Path = "tests/files/Test008.gjf".as_ref();
-    let s = gut::fs::read_file(f)?;
-
-    // for path issue when including external file
-    // std::env::set_current_dir(f.parent().unwrap());
-    let x = xDH::rewrite_gaussian_input(&s)?;
+    let x = xDH::rewrite_gaussian_input(f)?;
     println!("reformed input\n{x}");
 
     Ok(())
