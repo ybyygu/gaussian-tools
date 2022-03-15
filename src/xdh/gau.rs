@@ -158,17 +158,14 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
     comp[5] = energy_pt2[0];
     comp[6] = energy_pt2[1];
 
-    // collect solvation energy term
+    // collect solvation energy term, which is optional
     let p: Option<_> = lines
         .iter()
         .filter(|line| line.contains("Erf(P)="))
         .last()
         .map(|line| parse_solvent(line));
-    if let Some(x) = p {
-        // FIXME: remove unwrap
-        energy_no_xc += x.unwrap();
-    } else {
-        bail!("Error happens in collecting the solvation energy from {f:?}");
+    if let Some(Some(x)) = p {
+        energy_no_xc += x;
     }
 
     Ok((energy_no_xc, comp))
