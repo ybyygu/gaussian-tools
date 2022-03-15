@@ -5,7 +5,9 @@ use super::*;
 // 3b069e29 ends here
 
 // [[file:../../xo-tools.note::d3061f91][d3061f91]]
+/// Obtain XYG3-type doubly hybrid (xDH) results from Gaussian output
 #[derive(Debug, Parser)]
+#[clap(author, version, about)]
 struct Cli {
     #[clap(flatten)]
     verbosity: Verbosity,

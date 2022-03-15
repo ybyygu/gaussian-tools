@@ -3,8 +3,9 @@ use super::*;
 // 9b77d0e3 ends here
 
 // [[file:../../xo-tools.note::8fbf13aa][8fbf13aa]]
-/// Generate cube file using Multiwfn for Gaussian output file
+/// Generate cube file using Multiwfn from Gaussian output file
 #[derive(Debug, Parser)]
+#[clap(author, version, about)]
 struct Cli {
     #[clap(flatten)]
     verbosity: Verbosity,
@@ -24,7 +25,7 @@ struct Cli {
 pub fn enter_main() -> Result<()> {
     use duct::cmd;
 
-    let args = Cli::from_args();
+    let args = Cli::parse();
     args.verbosity.setup_logger();
 
     let mut inputs = String::new();

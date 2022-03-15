@@ -78,6 +78,7 @@ fn fix_line_endings_issue(txt: &str) -> String {
 // [[file:../../xo-tools.note::3f24c131][3f24c131]]
 /// A convenient wrapper for running Gaussian program in different version
 #[derive(Debug, StructOpt)]
+#[clap(author, version, about)]
 struct Cli {
     #[structopt(flatten)]
     verbosity: Verbosity,

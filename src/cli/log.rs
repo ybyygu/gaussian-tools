@@ -129,6 +129,7 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
 // [[file:../../xo-tools.note::6df1e54a][6df1e54a]]
 /// Print important lines found in a Gaussian output file.
 #[derive(Debug, StructOpt)]
+#[clap(author, version, about)]
 struct Cli {
     #[structopt(flatten)]
     verbosity: Verbosity,

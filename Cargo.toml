@@ -1,7 +1,7 @@
 # [[file:xo-tools.note::53f67ee8][53f67ee8]]
 [package]
 name = "gaussian-tools"
-version = "0.0.7"
+version = "0.0.8"
 edition = "2021"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 
