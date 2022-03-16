@@ -112,6 +112,9 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
         .map(|line| parse_entvj(line))
         .collect();
     if let Some(x) = p {
+        if x.len() != 3 {
+            bail!("no ENTVJ line found from {f:?}");
+        }
         energy_no_xc = x[0][0];
         comp[0] = x[0][1];
         comp[1] = x[1][1];

@@ -1,4 +1,8 @@
-# XYG3(full)/gen sp scf=tight
+#p b3lyp/gen sp scf=tight iop(5/33=1) nosymm extraoverlay
+
+8/7=1,10=90/1;
+9/16=-3/6;
+6//8;
 
 Test for normal Cartesian geometry input and gen file ended with blank line::
 ==----------------------------------------------------------------------------==
@@ -14,4 +18,8 @@ Test for normal Cartesian geometry input and gen file ended with blank line::
 N 0
 6-311+G(3df,p)
 ****
-@Test008.H  /N
+@tests/files/Test008.H  /N
+
+100
+205
+402

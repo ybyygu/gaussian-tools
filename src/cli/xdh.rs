@@ -45,7 +45,8 @@ pub fn enter_main() -> Result<()> {
 
     match args.action {
         Action::Rewrite(rewrite) => {
-            xDH::rewrite_gaussian_input(&rewrite.inpfile)?;
+            let s = xDH::rewrite_gaussian_input(&rewrite.inpfile)?;
+            println!("{s}");
         }
         Action::Obtain(obtain) => {
             let xdh = xDH::collect_from_gaussian(&obtain.outfile)?;

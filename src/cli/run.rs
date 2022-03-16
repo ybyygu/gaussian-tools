@@ -105,7 +105,7 @@ pub fn enter_main() -> Result<()> {
     let input = gut::fs::read_file(&args.inp_file)?;
     let input = fix_line_endings_issue(&input);
 
-    run_gaussian(&input, &out_file, dbg!(&rc_file))?;
+    run_gaussian(&input, &out_file, &rc_file)?;
 
     Ok(())
 }
