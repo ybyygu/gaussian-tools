@@ -2,46 +2,6 @@
 use super::*;
 // imports:1 ends here
 
-// [[file:../../xo-tools.note::07a8922b][07a8922b]]
-/// rewrite at file using absolute path to avoid issue when current directory
-/// changes
-fn absolute_at_file_path(line: &str, relative: &Path) -> Option<String> {
-    // ignore special path with env var, for example: @GAUSS_EXEDIR:mm2.prm
-    if line.contains(":") {
-        debug!("found env var in at command line, ignored: {line:?}");
-        return Some(line.into());
-    }
-
-    let re = Regex::new(
-        r"(?x)
-^\s*@           # a line starts with @
-(?P<path>\S+)   # path to external file
-",
-    )
-    .unwrap();
-
-    let caps = re.captures(line)?;
-    let path = caps.name("path")?;
-
-    // get absolute path relative to Gaussian input file
-    let path = path.as_str();
-    let absolute_path = relative.parent()?.join(path);
-    line.replace(path, absolute_path.to_str()?).into()
-}
-
-#[test]
-fn test_xdh_gjf_at_file() {
-    let x = absolute_at_file_path("@Test008.H /N", "/path/to/Test008.gjf".as_ref()).unwrap();
-    assert_eq!(x, "@/path/to/Test008.H /N");
-
-    let x = absolute_at_file_path("@GAUSS_EXEDIR:mm2.prm", "/path/to/Test008.gjf".as_ref()).unwrap();
-    assert_eq!(x, "@GAUSS_EXEDIR:mm2.prm");
-
-    let x = absolute_at_file_path("@Test008.H ", "path/to/Test008.gjf".as_ref()).unwrap();
-    assert_eq!(x, "@path/to/Test008.H ");
-}
-// 07a8922b ends here
-
 // [[file:../../xo-tools.note::f45e0853][f45e0853]]
 use regex::Regex;
 
