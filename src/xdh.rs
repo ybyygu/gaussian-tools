@@ -1,3 +1,7 @@
+// [[file:../xo-tools.note::006191b3][006191b3]]
+//! Reference: https://github.com/igor-1982/xDH4Gau
+// 006191b3 ends here
+
 // [[file:../xo-tools.note::0c085add][0c085add]]
 #[allow(non_camel_case_types)]
 
