@@ -21,7 +21,7 @@ fn rewrite_route_section(s: &str) -> Result<String> {
 (?i)XYG3               # XYG3, case insensitive
 (?P<core>\(\w+\)){0,1} # XYG3(FULL) or XYG3(FC)
 ").unwrap();
-
+    let caps = re.captures(&reformed).ok_or(format_err!("no XYG3 route line found"))?;
     let mut reformed: String = re.replace(reformed.trim_end(), "B3LYP").to_lowercase();
     // iop(5/33=1) nosymm extraoverlay
     if !reformed.contains("iop(5/33=1)") {
@@ -35,7 +35,6 @@ fn rewrite_route_section(s: &str) -> Result<String> {
     }
 
     // turn on frozen core algorithm or not
-    let caps = re.captures(s).unwrap();
     let frozen_core = if let Some(core_type) = caps.name("core") {
         match core_type.as_str().to_uppercase().as_str() {
             "(FULL)" => false,
