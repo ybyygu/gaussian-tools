@@ -6,11 +6,15 @@ use super::*;
 /// Read all relevant lines for XYG3 from Gaussian generated log file
 fn extract_relevant_lines(f: &Path) -> Result<Vec<String>> {
     let f = file_reader(f)?;
+    extract_relevant_lines_from(f)
+}
 
+/// Read all relevant lines for XYG3 from Gaussian generated log file
+fn extract_relevant_lines_from(s: impl BufRead) -> Result<Vec<String>> {
     #[rustfmt::skip]
     let keywords = ["ENTVJ= ", "SCF Done:", "alpha-beta", "alpha-alpha", "beta-beta", "Erf(P)="];
 
-    let lines = f
+    let lines = s
         .lines()
         .filter_map(move |line| {
             // NOTE: line is wrapped in a Result type for UTF-8 issue
@@ -99,8 +103,13 @@ fn test_parse_solvent() {
 // 029f58f8 ends here
 
 // [[file:../../xo-tools.note::f1ce30a8][f1ce30a8]]
-fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
-    let lines = extract_relevant_lines(f)?;
+fn collect_energy_components_from_file(f: &Path) -> Result<(f64, Component)> {
+    let r = file_reader(f)?;
+    collect_energy_components_from(r)
+}
+
+fn collect_energy_components_from(s: impl BufRead) -> Result<(f64, Component)> {
+    let lines = extract_relevant_lines_from(s)?;
 
     let mut comp = Component::default();
     let mut energy_no_xc = f64::NAN;
@@ -113,7 +122,7 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
         .collect();
     if let Some(x) = p {
         if x.len() != 3 {
-            bail!("no ENTVJ line found from {f:?}");
+            bail!("no ENTVJ line found in output stream");
         }
         energy_no_xc = x[0][0];
         comp[0] = x[0][1];
@@ -122,7 +131,7 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
         comp[3] = x[1][2];
         comp[4] = x[2][2];
     } else {
-        bail!("Error happens in collecting the DFT components from {f:?}");
+        bail!("Error happens in collecting the DFT components in output stream");
     }
 
     // collect PT2 energy terms
@@ -134,7 +143,7 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
     if let Some(Some(x)) = p {
         energy_pt2[1] = x;
     } else {
-        bail!("Error happens in collecting the alpha-alpha ssPT2 from {f:?}");
+        bail!("Error happens in collecting the alpha-alpha ssPT2 in output stream");
     }
 
     let p: Option<_> = lines
@@ -145,7 +154,7 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
     if let Some(Some(x)) = p {
         energy_pt2[0] = x;
     } else {
-        bail!("Error happens in collecting the alpha-beta osPT2 from {f:?}");
+        bail!("Error happens in collecting the alpha-beta osPT2 in output stream");
     }
 
     let p: Option<_> = lines
@@ -156,7 +165,7 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
     if let Some(Some(x)) = p {
         energy_pt2[1] += x;
     } else {
-        bail!("Error happens in collecting the beta-beta ssPT2 from {f:?}");
+        bail!("Error happens in collecting the beta-beta ssPT2 in output stream");
     }
     comp[5] = energy_pt2[0];
     comp[6] = energy_pt2[1];
@@ -177,8 +186,17 @@ fn collect_energy_components_from(f: &Path) -> Result<(f64, Component)> {
 
 // [[file:../../xo-tools.note::97608d27][97608d27]]
 impl xDH {
-    pub fn collect_from_gaussian(f: &Path) -> Result<Self> {
-        let (energy_no_xc, component) = collect_energy_components_from(f)?;
+    /// Collect from gaussian output file or from stdin stream
+    pub fn collect_from_gaussian<'a>(f: impl Into<Option<&'a Path>>) -> Result<Self> {
+        let (energy_no_xc, component) = if let Some(f) = f.into() {
+            info!("Reading Gaussian output from {f:?} ...");
+            let outfile = file_reader(f)?;
+            collect_energy_components_from(outfile)?
+        } else {
+            info!("Reading Gaussian output from stdin ...");
+            let mut stdin = std::io::stdin().lock();
+            collect_energy_components_from(stdin)?
+        };
         let xdh = Self {
             component,
             energy_no_xc,
@@ -192,8 +210,8 @@ impl xDH {
 // [[file:../../xo-tools.note::0e2e1938][0e2e1938]]
 #[test]
 fn test_parse() -> Result<()> {
-    let f = "tests/files/Job_o2.log";
-    let (e_no_xc, comp) = collect_energy_components_from(f.as_ref())?;
+    let f: &Path = "tests/files/Job_o2.log".as_ref();
+    let (e_no_xc, comp) = collect_energy_components_from_file(f)?;
     assert_eq!(e_no_xc, -133.28191752160902);
 
     #[rustfmt::skip]

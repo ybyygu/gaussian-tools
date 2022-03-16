@@ -16,13 +16,13 @@ enum Action {
 #[derive(Args, Debug)]
 struct RewriteInput {
     /// Path to Gaussian input file containing "XYG3" or other xDH functional keywords
-    inpfile: PathBuf,
+    inpfile: Option<PathBuf>,
 }
 
 #[derive(Args, Debug)]
 struct ObtainFrom {
     /// Path to Gaussian output file relevant for XYG3 type calculations
-    outfile: PathBuf,
+    outfile: Option<PathBuf>,
 }
 
 /// Obtain XYG3-type doubly hybrid (xDH) results from Gaussian output
@@ -45,11 +45,12 @@ pub fn enter_main() -> Result<()> {
 
     match args.action {
         Action::Rewrite(rewrite) => {
-            let s = xDH::rewrite_gaussian_input(&rewrite.inpfile)?;
+            let s = xDH::rewrite_gaussian_input(rewrite.inpfile.as_ref().unwrap())?;
             println!("{s}");
         }
         Action::Obtain(obtain) => {
-            let xdh = xDH::collect_from_gaussian(&obtain.outfile)?;
+            let out: Option<&Path> = obtain.outfile.as_ref().map(|x| x.as_ref());
+            let xdh = xDH::collect_from_gaussian(out)?;
             let energy_xyg3 = xdh.energy(Functional::XYG3);
             eprintln!("  E(XYG3)    =  {energy_xyg3:16.8} A.U.");
             println!("@model_properties_format_version 0.1");

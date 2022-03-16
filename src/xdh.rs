@@ -4,7 +4,6 @@
 
 // [[file:../xo-tools.note::0c085add][0c085add]]
 #[allow(non_camel_case_types)]
-
 use super::*;
 // 0c085add ends here
 
@@ -67,9 +66,9 @@ impl xDH {
 // [[file:../xo-tools.note::595d4056][595d4056]]
 #[test]
 fn test_xdh_energy() -> Result<()> {
-    let f = "tests/files/Job_o2.log";
+    let f: &Path = "tests/files/Job_o2.log".as_ref();
 
-    let xdh = xDH::collect_from_gaussian(f.as_ref())?;
+    let xdh = xDH::collect_from_gaussian(f)?;
     assert_eq!(-150.25844295353738, xdh.energy(Functional::XYG3));
     assert_eq!(-150.05851758259632, xdh.energy(Functional::XYG5));
     assert_eq!(-150.005907822815, xdh.energy(Functional::XYG6));
