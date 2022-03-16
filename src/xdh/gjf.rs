@@ -130,6 +130,32 @@ fn rewrite_final_section(s: &str) -> Result<String> {
 
 // [[file:../../xo-tools.note::8b2a8f8c][8b2a8f8c]]
 impl xDH {
+    /// Rewrite Gaussian input stream `f` to make it suitable for XYG3 type
+    /// calculation. If f is None, it will read from stdin. The reformed stream
+    /// will be printed in stdout.
+    pub fn rewrite_gaussian_input<'a>(f: impl Into<Option<&'a Path>>) -> Result<String> {
+        if let Some(f) = f.into() {
+            let s = file_reader(f)?;
+            Self::rewrite_gaussian_input_from(s)
+        } else {
+            let s = std::io::stdin().lock();
+            Self::rewrite_gaussian_input_from(s)
+        }
+    }
+
+    fn read_gaussian_input_from(s: impl BufRead) -> Result<String> {
+        let mut reformed = String::new();
+        for line in s.lines() {
+            let line = line?;
+            if line.trim_start().starts_with("@") {
+                debug!("found at file: {line}");
+            }
+            writeln!(&mut reformed, "{line}");
+        }
+
+        Ok(reformed)
+    }
+
     /// Read gaussian input from file, try to:
     ///
     /// 1. avoid Windows/Unix line ending issue
@@ -137,29 +163,14 @@ impl xDH {
     /// 2. avoid relative at file issue
     ///
     fn read_gaussian_input(f: &Path) -> Result<String> {
-        let mut reformed = String::new();
-        for line in file_reader(f)?.lines() {
-            let line = line?;
-            if line.trim_start().starts_with("@") {
-                debug!("handle at file: {line}");
-                if let Some(line) = absolute_at_file_path(&line, f) {
-                    writeln!(&mut reformed, "{line}");
-                } else {
-                    warn!("failed to handle at command in file: {f:?}");
-                    writeln!(&mut reformed, "{line}");
-                }
-            } else {
-                writeln!(&mut reformed, "{line}");
-            }
-        }
-
-        Ok(reformed)
+        let f = file_reader(f)?;
+        Self::read_gaussian_input_from(f)
     }
 
     /// Rewrite Gaussian input file `s` to make it suitable for XYG3 type
     /// calculation
-    pub fn rewrite_gaussian_input(f: &Path) -> Result<String> {
-        let s = Self::read_gaussian_input(f)?;
+    fn rewrite_gaussian_input_from(f: impl BufRead) -> Result<String> {
+        let s = Self::read_gaussian_input_from(f)?;
         let re = Regex::new(r"\n\s*\n").unwrap();
         let sections = re.split(s.trim()).collect_vec();
         let n = sections.len();

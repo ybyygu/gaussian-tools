@@ -18,7 +18,7 @@ Test for normal Cartesian geometry input and gen file ended with blank line::
 N 0
 6-311+G(3df,p)
 ****
-@tests/files/Test008.H  /N
+@Test008.H  /N
 
 100
 205
