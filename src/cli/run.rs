@@ -29,7 +29,7 @@ fn get_gaussian_exe_from_path(rcfile: &Path) -> Option<String> {
     Some(gxx.into())
 }
 
-pub(crate) fn run_gaussian(input: &str, output_file: &Path, rcfile: &Path) -> Result<()> {
+pub(crate) fn run_gaussian(input: &str, output_file: Option<PathBuf>, rcfile: &Path) -> Result<()> {
     let scr_root_dir = init_env()?;
     let tdir = tempfile::tempdir_in(scr_root_dir).context("Create scratching dir")?;
     let scr_dir = tdir.path();
@@ -52,11 +52,18 @@ source \"${gxx}root/{gxx}/bsd/{gxx}.profile\"
     let runfile = scr_dir.join("run");
     gut::fs::write_script_file(&runfile, &script)?;
 
-    duct::cmd!(runfile)
-        .env("GAUSS_SCRDIR", scr_dir)
-        .stdin_bytes(input)
-        .stdout_path(output_file)
-        .run()?;
+    if let Some(out) = output_file {
+        duct::cmd!(runfile)
+            .env("GAUSS_SCRDIR", scr_dir)
+            .stdin_bytes(input)
+            .stdout_path(out)
+            .run()?;
+    } else {
+        duct::cmd!(runfile)
+            .env("GAUSS_SCRDIR", scr_dir)
+            .stdin_bytes(input)
+            .run()?;
+    }
 
     info!("Gaussian job finished.");
 
@@ -83,8 +90,13 @@ struct Cli {
     #[structopt(flatten)]
     verbosity: Verbosity,
 
-    /// The Gaussian input file
-    inp_file: PathBuf,
+    /// Path to the Gaussian input file. If not set, it will be read from stdin.
+    inp_file: Option<PathBuf>,
+
+    /// Path to Gaussian output file. If not set, it will be determined
+    /// automatically based on input file name.
+    #[structopt(short = 'o')]
+    out_file: Option<PathBuf>,
 
     /// The main Gaussian executable name: g03, g09, g16, ...
     #[structopt(short = 'x')]
@@ -101,13 +113,38 @@ pub fn enter_main() -> Result<()> {
     let rc_name = format!("{}.rc", &args.gauss_exe);
     let rc_file = real_path.with_file_name(&rc_name);
 
-    let out_file = args.inp_file.with_extension("log");
-    let input = gut::fs::read_file(&args.inp_file)?;
-    let input = fix_line_endings_issue(&input);
+    let input = read_from_stdin_or_file(args.inp_file.as_ref())?;
+    let out_file = args.out_file.or(args.inp_file.as_ref().map(|x| guess_output_file(x)));
 
-    run_gaussian(&input, &out_file, &rc_file)?;
+    run_gaussian(&input, out_file, &rc_file)?;
 
     Ok(())
+}
+
+/// Guess an output file name from input file name
+fn guess_output_file(inp_file: &Path) -> PathBuf {
+    let out_file = inp_file.with_extension("log");
+    assert_ne!(
+        out_file.extension(),
+        inp_file.extension(),
+        "invalid input file name: {inp_file:?}"
+    );
+    out_file
+}
+
+fn read_from_stdin_or_file(f: Option<&PathBuf>) -> Result<String> {
+    let input = if let Some(f) = f {
+        gut::fs::read_file(f)?
+    } else {
+        info!("Reading Gaussian input from stdin ...");
+        let mut buffer = String::new();
+        let mut stdin = std::io::stdin();
+        stdin.read_to_string(&mut buffer)?;
+        buffer
+    };
+    let input = fix_line_endings_issue(&input);
+
+    Ok(input)
 }
 // 3f24c131 ends here
 
