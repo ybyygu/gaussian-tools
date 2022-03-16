@@ -48,16 +48,16 @@ fn rewrite_route_section(s: &str) -> Result<String> {
     };
 
     // write extra overlays
-    writeln!(&mut reformed, "\n");
+    writeln!(&mut reformed, "\n")?;
     // 'AE':['8/7=1,10=90/1;','9/16=-3/6;','6//8;'],
     // 'FC':['8/7=1,10=4/1;','9/16=-3/6;','6//8;']
     if frozen_core {
-        writeln!(&mut reformed, "8/7=1,10=4/1;");
+        writeln!(&mut reformed, "8/7=1,10=4/1;")?;
     } else {
-        writeln!(&mut reformed, "8/7=1,10=90/1;");
+        writeln!(&mut reformed, "8/7=1,10=90/1;")?;
     }
-    writeln!(&mut reformed, "9/16=-3/6;");
-    writeln!(&mut reformed, "6//8;");
+    writeln!(&mut reformed, "9/16=-3/6;")?;
+    writeln!(&mut reformed, "6//8;")?;
 
     Ok(reformed)
 }
@@ -94,9 +94,11 @@ impl xDH {
     /// will be printed in stdout.
     pub fn rewrite_gaussian_input<'a>(f: impl Into<Option<&'a Path>>) -> Result<String> {
         if let Some(f) = f.into() {
+            info!("Reading Gaussian input from {f:?} ...");
             let s = file_reader(f)?;
             Self::rewrite_gaussian_input_from(s)
         } else {
+            info!("Reading Gaussian input from stdin ...");
             let s = std::io::stdin().lock();
             Self::rewrite_gaussian_input_from(s)
         }
@@ -109,18 +111,13 @@ impl xDH {
             if line.trim_start().starts_with("@") {
                 debug!("found at file: {line}");
             }
-            writeln!(&mut reformed, "{line}");
+            writeln!(&mut reformed, "{line}")?;
         }
 
         Ok(reformed)
     }
 
-    /// Read gaussian input from file, try to:
-    ///
-    /// 1. avoid Windows/Unix line ending issue
-    ///
-    /// 2. avoid relative at file issue
-    ///
+    /// Read gaussian input from file
     fn read_gaussian_input(f: &Path) -> Result<String> {
         let f = file_reader(f)?;
         Self::read_gaussian_input_from(f)
@@ -144,9 +141,9 @@ impl xDH {
         let mut route = String::new();
         while let Some(line) = lines.next() {
             if line.starts_with("%") {
-                writeln!(&mut link0, "{line}");
+                writeln!(&mut link0, "{line}")?;
             } else {
-                writeln!(&mut route, "{line}");
+                writeln!(&mut route, "{line}")?;
             }
         }
 

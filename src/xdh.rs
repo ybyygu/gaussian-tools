@@ -4,12 +4,13 @@
 
 // [[file:../xo-tools.note::0c085add][0c085add]]
 #[allow(non_camel_case_types)]
+
 use super::*;
 // 0c085add ends here
 
 // [[file:../xo-tools.note::101dbb9a][101dbb9a]]
-mod gau;
-mod gjf;
+mod output;
+mod input;
 // 101dbb9a ends here
 
 // [[file:../xo-tools.note::8e5ac845][8e5ac845]]

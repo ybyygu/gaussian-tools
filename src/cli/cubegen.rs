@@ -29,13 +29,13 @@ pub fn enter_main() -> Result<()> {
     args.verbosity.setup_logger();
 
     let mut inputs = String::new();
-    writeln!(&mut inputs, "5");
-    writeln!(&mut inputs, "4");
-    writeln!(&mut inputs, "1");
-    writeln!(&mut inputs, "3");
-    writeln!(&mut inputs, "2");
-    writeln!(&mut inputs, "0");
-    writeln!(&mut inputs, "q");
+    writeln!(&mut inputs, "5")?;
+    writeln!(&mut inputs, "4")?;
+    writeln!(&mut inputs, "1")?;
+    writeln!(&mut inputs, "3")?;
+    writeln!(&mut inputs, "2")?;
+    writeln!(&mut inputs, "0")?;
+    writeln!(&mut inputs, "q")?;
 
     let o = cmd!("Multiwfn", &args.input_file).stdin_bytes(inputs).run()?;
     dbg!(o);
