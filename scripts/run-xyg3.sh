@@ -2,7 +2,5 @@
 
 source /share/apps/gaussian/env.rc
 
-input=${1%.gjf}.com
-xdh rewrite $1 > $input
-g09 $input
-xdh obtain ${input%.com}.log
+# $1 is supposed to be Gaussian input file: foo.com
+cat $1 | xdh rewrite | g09 | tee test.log | xdh obtain
