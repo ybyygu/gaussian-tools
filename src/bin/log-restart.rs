@@ -4,7 +4,7 @@ use gut::prelude::*;
 
 // [[file:../../xo-tools.note::2814494e][2814494e]]
 fn main() -> Result<()> {
-    gaussian_tools::cli::restart::enter_main();
+    gaussian_tools::cli::restart::enter_main()?;
 
     Ok(())
 }

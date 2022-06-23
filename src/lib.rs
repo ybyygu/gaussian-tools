@@ -1,4 +1,6 @@
 // [[file:../xo-tools.note::95fd6309][95fd6309]]
+#[allow(dead_code)]
+
 use gut::prelude::*;
 use std::io::BufRead;
 use std::path::{Path, PathBuf};

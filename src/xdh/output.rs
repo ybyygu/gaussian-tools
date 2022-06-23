@@ -35,7 +35,7 @@ fn extract_relevant_lines_from(s: impl BufRead) -> Result<Vec<String>> {
 //  SCF Done:  E(UB3LYP) =  -150.367567881     A.U. after    9 cycles
 fn parse_scf_done(line: &str) -> Option<f64> {
     if line.starts_with(" SCF Done:") {
-        line[24..].trim().parse().ok()
+        line[24..44].trim().parse().ok()
     } else {
         None
     }

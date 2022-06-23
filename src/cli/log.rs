@@ -2,7 +2,7 @@
 use super::*;
 // imports:1 ends here
 
-// [[file:../../xo-tools.note::*core][core:1]]
+// [[file:../../xo-tools.note::1c08ebe1][1c08ebe1]]
 macro_rules! banner {
     () => {
         println!(" {:-^72}", "");
@@ -51,12 +51,11 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
         } else if line.contains("Number of steps in this run=") {
             info!("{}", line);
         } else if line.contains("Convergence criterion not met") {
-            warn!("{}", line);
-        // # print SCF information and the next two lines
+            info!("{}", line);
+            // # print SCF information and the next two lines
         } else if line.starts_with(" SCF Done: ") {
-            warn!("{}", line);
+            warn!("{line}");
             print_next_line!(lines);
-            // print_next_line!(lines);
             banner!();
         } else if line.contains("Step number") {
             info!("{}", line);
@@ -124,7 +123,7 @@ fn summarize_gauss_log<R: BufRead>(flog: R) -> Result<()> {
 
     Ok(())
 }
-// core:1 ends here
+// 1c08ebe1 ends here
 
 // [[file:../../xo-tools.note::6df1e54a][6df1e54a]]
 /// Print important lines found in a Gaussian output file.
