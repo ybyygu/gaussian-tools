@@ -108,6 +108,9 @@ fn test_parse_log() -> Result<()> {
 /// * path: path to Gaussian input file, *.com, *.gjf
 ///
 fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Result<String> {
+    assert!(!coords.is_empty(), "no coords");
+    let path = path.as_ref();
+    info!("update file {path:?} with new coords");
     let pat = r"\s+[-0-9]+\.[0-9]+\s+[-0-9]+\.[0-9]+\s+[-0-9]+\.[0-9]+";
     let re = regex::Regex::new(pat).unwrap();
 
@@ -146,6 +149,7 @@ fn update_with_coordinates<P: AsRef<Path>>(path: P, coords: &[[f64; 3]]) -> Resu
 // [[file:../../xo-tools.note::2814494e][2814494e]]
 /// Update Gaussian input file from multi-step optimization job.
 #[derive(Debug, StructOpt)]
+#[clap(author, version, about)]
 struct Cli {
     #[structopt(flatten)]
     verbosity: Verbosity,
@@ -170,8 +174,12 @@ pub fn enter_main() -> Result<()> {
     let ofile = &args.log_file;
     info!("Log file: {}", ofile.display());
 
-    let guessed = args.log_file.with_extension("gjf");
-    let ifile = args.inp_file.unwrap_or_else(|| guessed);
+    let guessed_gjf = args.log_file.with_extension("gjf");
+    let guessed_com = args.log_file.with_extension("com");
+    let mut ifile = args.inp_file.unwrap_or_else(|| guessed_gjf);
+    if !ifile.exists() {
+        ifile = guessed_com;
+    }
     info!("Input file: {}", ifile.display());
 
     let coords = parse_gaussian_log_file(ofile)?;
