@@ -44,17 +44,21 @@ fn parse_scf_done(line: &str) -> Option<f64> {
 
 // [[file:../../xo-tools.note::e68b3776][e68b3776]]
 // ENTVJ= -133.281125 Ex=  -16.365355 Ec=    0.000000 ETotM2e= -234.7283473371  ETot= -149.6464806455
+// ENTVJ= -363.840442 Ex=  -50.358635 Ec=   -5.600997 ETotM2e=-1072.3996282781  ETot= -419.8000737661
 fn parse_entvj(line: &str) -> Option<[f64; 4]> {
-    let parts = line.split_whitespace().collect_vec();
-    assert_eq!(parts.len(), 10, "invalid {line:?}");
+    // NOTE: could be invalid when the number is large
+    // let parts = line.split_whitespace().collect_vec();
+    let parts: Vec<_> = line
+        .split('=')
+        .skip(1)
+        .filter_map(|s| {
+            let x = s.split_whitespace().next()?;
+            x.parse::<f64>().ok()
+        })
+        .collect();
+    assert_eq!(parts.len(), 5, "invalid line: {line:?}");
 
-    [
-        parts[1].parse().ok()?,
-        parts[3].parse().ok()?,
-        parts[5].parse().ok()?,
-        parts[7].parse().ok()?,
-    ]
-    .into()
+    Some([parts[0], parts[1], parts[2], parts[3]])
 }
 // e68b3776 ends here
 
@@ -82,6 +86,21 @@ fn test_xdh_os_ss() {
     let line = "     beta-beta   T2 =       0.7629260704D-01 E2=     -0.1043875581D+00";
     let x = parse_os_ss(line);
     assert_eq!(x, Some(-0.1043875581));
+
+    // ENTVJ= -363.840442 Ex=  -50.358635 Ec=   -5.600997 ETotM2e=-1072.3996282781  ETot= -419.8000737661
+    let line = "            ENTVJ= -363.840442 Ex=  -50.358635 Ec=   -5.600997 ETotM2e=-1072.3996282781  ETot= -419.8000737661";
+    let parts: Vec<_> = line
+        .split('=')
+        .skip(1)
+        .filter_map(|s| {
+            let x = s.split_whitespace().next()?;
+            x.parse::<f64>().ok()
+        })
+        .collect();
+    dbg!(parts);
+    let parts = parse_entvj(&line);
+    assert!(parts.is_some());
+    assert_eq!(parts.unwrap()[3], -1072.3996282781);
 }
 // 0491bdad ends here
 
