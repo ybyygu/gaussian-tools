@@ -12,7 +12,7 @@ fn extract_relevant_lines(f: &Path) -> Result<Vec<String>> {
 /// Read all relevant lines for XYG3 from Gaussian generated log file
 fn extract_relevant_lines_from(s: impl BufRead) -> Result<Vec<String>> {
     #[rustfmt::skip]
-    let keywords = ["ENTVJ= ", "SCF Done:", "alpha-beta", "alpha-alpha", "beta-beta", "Erf(P)="];
+    let keywords = ["ENTVJ=", "SCF Done:", "alpha-beta", "alpha-alpha", "beta-beta", "Erf(P)="];
 
     let lines = s
         .lines()
@@ -89,6 +89,7 @@ fn test_xdh_os_ss() {
 
     // ENTVJ= -363.840442 Ex=  -50.358635 Ec=   -5.600997 ETotM2e=-1072.3996282781  ETot= -419.8000737661
     let line = "            ENTVJ= -363.840442 Ex=  -50.358635 Ec=   -5.600997 ETotM2e=-1072.3996282781  ETot= -419.8000737661";
+    // let line = "            ENTVJ=-1261.054618 Ex= -116.450185 Ec=    0.000000 ETotM2e=-2749.2509298729  ETot=-1377.5048029040";
     let parts: Vec<_> = line
         .split('=')
         .skip(1)
